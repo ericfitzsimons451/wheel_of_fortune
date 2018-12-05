@@ -6,6 +6,17 @@ html {
   box-sizing: inherit;
 }
 
+
+/* Start Screen Styles */
+.start-screen {
+  width: 100%;
+  max-width: 1440px;
+  position: absolute;
+  z-index: 10;
+  background-color: tan;
+  height: 100%;
+}
+
 /* Header Styles */
 .top {
   display: flex;
