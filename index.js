@@ -1,8 +1,8 @@
-
-
 $('.start-game-btn').on('click', startGame)
-
-
+let player1;
+let player2;
+let player3;
+let game;
 //Functions for Event Handlers
 function startGame(event) {
   event.preventDefault()
@@ -15,5 +15,14 @@ function startGame(event) {
   $('.display-player3-name').text(`Player 3: ${player3Name}`);
 
   $('.start-screen').hide()
+
+  player1 = new Player(player1Name)
+  player2 = new Player(player2Name)
+  player3 = new Player(player3Name)
+
+  player1.turn = true;
+
+  game = new Game([player1, player2, player3]);
 }
+
 
