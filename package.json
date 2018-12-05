@@ -1,0 +1,24 @@
+{
+  "name": "wheel_of_fortune",
+  "version": "1.0.0",
+  "description": "Web based version of Wheel of Fortune",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericweissman/wheel_of_fortune.git"
+  },
+  "author": "Eric Weissman and Eric Fitzsimmons",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericweissman/wheel_of_fortune/issues"
+  },
+  "homepage": "https://github.com/ericweissman/wheel_of_fortune#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.9.0",
+    "mocha": "^5.2.0"
+  }
+}
