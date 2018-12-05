@@ -1,12 +1,19 @@
-const player1Name = $('.player1-input').val()
-const player2Name = $(".player2-input").val();
-const player3Name = $(".player3-input").val();
+
 
 $('.start-game-btn').on('click', startGame)
 
 
 //Functions for Event Handlers
-function startGame() {
-  console.log('hi')
+function startGame(event) {
+  event.preventDefault()
+  const player1Name = $('#player-1-input').val();
+  const player2Name = $("#player-2-input").val();
+  const player3Name = $("#player-3-input").val();
+
+  $('.display-player1-name').text(`Player 1: ${player1Name}`); 
+  $('.display-player2-name').text(`Player 2: ${player2Name}`); 
+  $('.display-player3-name').text(`Player 3: ${player3Name}`);
+
+  $('.start-screen').hide()
 }
 
