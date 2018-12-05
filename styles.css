@@ -1,0 +1,107 @@
+/* Global Styles */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Header Styles */
+.top {
+  display: flex;
+  justify-content: space-between;
+  background-color: #44887B;
+
+}
+
+/* Gameboard Styles */
+.board {
+  background-color: #6DA398;
+  text-align: center;
+}
+
+.board-background {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.board-space {
+  list-style: none;
+  font-size: 50px;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  width: 50px;
+}
+
+.curr-category {
+  font-size: 40px;
+  margin: 0;
+  padding-bottom: 25px;
+}
+
+/* Word Bank and Buttons Area Styling */
+.bank-buttons-area {
+  background-color: #0E5144;
+  display: flex;
+  justify-content: space-between;
+}
+
+.letter-bank {
+  text-align: center;
+}
+
+.consonants {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  justify-content: center;
+}
+
+.letter-btn {
+  list-style: none;
+  font-size: 20px;
+}
+
+.buy-a-vowel {
+  text-align: center;
+}
+
+.vowels {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  justify-content: center;  
+}
+
+.vowel-btn {
+  list-style: none;
+  font-size: 20px;
+}
+
+.spin-btn {
+  width: 125px;
+  height: 85px;
+  border-radius: 40px;
+}
+
+.solve-btn {
+  width: 125px;
+  height: 85px;
+  border-radius: 40px;
+}
+
+/* Player Area */
+
+.player-area {
+  background-color: #00362B;
+  display: flex;
+  justify-content: space-around;
+}
+
+.player-card {
+  background-color: white;
+  width: 250px;
+  height: 350px;
+}
