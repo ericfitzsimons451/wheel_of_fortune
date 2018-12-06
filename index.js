@@ -3,6 +3,7 @@ let player1;
 let player2;
 let player3;
 let game;
+let puzzle;
 //Functions for Event Handlers
 function startGame(event) {
   event.preventDefault()
@@ -23,6 +24,9 @@ function startGame(event) {
   player1.turn = true;
 
   game = new Game([player1, player2, player3]);
+  puzzle = game.createPuzzle(data);
+  console.log(puzzle[3])
+
 }
 
 

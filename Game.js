@@ -29,6 +29,28 @@ class Game {
   exitGame() {
     
   }
+
+  createPuzzle(data) {
+    let arrayOfPuzzles = []
+    const puzzlesToUse = data.puzzles.one_word_answers.puzzle_bank.forEach((puzzle) => {
+    arrayOfPuzzles.push(puzzle)
+  })
+    const puzzlesToUse2 = data.puzzles.two_word_answers.puzzle_bank.forEach((puzzle) => {
+    arrayOfPuzzles.push(puzzle)
+  })
+    const puzzlesToUse3 = data.puzzles.three_word_answers.puzzle_bank.forEach((puzzle) => {
+    arrayOfPuzzles.push(puzzle)
+  })
+    const puzzlesToUse4 = data.puzzles.four_word_answers.puzzle_bank.forEach((puzzle) => {
+    arrayOfPuzzles.push(puzzle)
+  })
+    puzzlesToUse;
+    puzzlesToUse2;
+    puzzlesToUse3;
+    puzzlesToUse4;
+    var puzzles = arrayOfPuzzles.sort(function(){return .5 - Math.random()}).slice(0, 5)
+    return puzzles;
+  }
 }
 
 if (typeof module !== 'undefined') {
