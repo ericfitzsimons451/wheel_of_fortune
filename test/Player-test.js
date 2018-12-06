@@ -4,7 +4,7 @@ const expect = chai.expect;
 chai.use(spies)
 const Player = require('../Player.js');
 global.domUpdates = require('../domUpdates.js')
-chai.spy.on(global.domUpdates, ['displayHeight','displayWidth'], () => true);
+
 
 
 describe('Player', function() {
@@ -15,6 +15,8 @@ describe('Player', function() {
 
   it('should instantiate a new player with a name', function() {
     expect(player.name).to.equal('name')
-  })
+  });
+
+  
 })
 

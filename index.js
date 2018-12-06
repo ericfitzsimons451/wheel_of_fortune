@@ -1,31 +1,33 @@
 $('.start-game-btn').on('click', startGame)
-let player1;
-let player2;
-let player3;
 let game;
 let puzzle;
 //Functions for Event Handlers
 function startGame(event) {
   event.preventDefault()
-  const player1Name = $('#player-1-input').val();
-  const player2Name = $("#player-2-input").val();
-  const player3Name = $("#player-3-input").val();
+  // const player1Name = $('#player-1-input').val();
+  // const player2Name = $("#player-2-input").val();
+  // const player3Name = $("#player-3-input").val();
 
-  $('.display-player1-name').text(`Player 1: ${player1Name}`); 
-  $('.display-player2-name').text(`Player 2: ${player2Name}`); 
-  $('.display-player3-name').text(`Player 3: ${player3Name}`);
+  // $('.display-player1-name').text(`Player 1: ${player1Name}`);
+  // $('.display-player2-name').text(`Player 2: ${player2Name}`);
+  // $('.display-player3-name').text(`Player 3: ${player3Name}`);
+  const playerNames = domUpdates.setPlayerNames();
+  const playerArr = playerNames.map((name) => {
+    return new Player(name)
+  })
+
 
   $('.start-screen').hide()
+  
+  // player1 = new Player(playerNames[0])
+  // player2 = new Player(playerNames[1]);
+  // player3 = new Player(playerNames[2]);
+  
 
-  player1 = new Player(player1Name)
-  player2 = new Player(player2Name)
-  player3 = new Player(player3Name)
+  playerArr[0].turn = true;
 
-  player1.turn = true;
-
-  game = new Game([player1, player2, player3]);
+  game = new Game(playerArr);
   puzzle = game.createPuzzle(data);
-  console.log(puzzle[3])
 
 }
 

@@ -6,12 +6,14 @@ class Player {
     this.bank = 0
   }
 
+
+
   spinWheel(){
 
   }
 
   guessLetter() {
-
+    
   }
 
   solvePuzzle() {
