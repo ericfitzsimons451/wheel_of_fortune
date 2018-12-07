@@ -12,5 +12,6 @@ class Puzzle {
 }
 
 
-
-module.exports = Puzzle;
+if (typeof module !== 'undefined'){
+  module.exports = Puzzle;
+}

@@ -8,3 +8,7 @@ class Wheel {
   //do we need a method here to generate the values on any wheel intantiation?
   //or should that method live on a different class? 
 }
+
+if(module !== 'undefined'){
+  module.exports = Wheel;
+}

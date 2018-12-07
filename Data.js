@@ -809,5 +809,5 @@ const data = {
 };
 
 if (typeof module !== 'undefined') {
-  module.exports = Data;
+  module.exports = data;
 }
