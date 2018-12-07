@@ -16,7 +16,5 @@ describe('Player', function() {
   it('should instantiate a new player with a name', function() {
     expect(player.name).to.equal('name')
   });
-
-  
 })
 

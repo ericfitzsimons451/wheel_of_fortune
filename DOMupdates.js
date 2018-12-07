@@ -1,6 +1,5 @@
 const domUpdates = {
-
-  setPlayerNames() {
+  setPlayerNames: function() {
     const player1Name = $('#player-1-input').val();
     const player2Name = $("#player-2-input").val();
     const player3Name = $("#player-3-input").val();
@@ -10,8 +9,13 @@ const domUpdates = {
     $('.display-player3-name').text(`Player 3: ${player3Name}`);
 
     return [player1Name, player2Name, player3Name]
-  }
+  },
 
+  hideStartScreen: function() {
+    $('.start-screen').hide();
+  }
 } 
 
-module.exports = domUpdates;
+if (typeof module !== 'undefined') {
+  module.exports = domUpdates;
+}

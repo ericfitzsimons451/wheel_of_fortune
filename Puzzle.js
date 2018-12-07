@@ -7,7 +7,7 @@ class Puzzle {
     this.numLettersInFirstWord = puzzleObject.first_word//same
   }
 
-  
+
 
 }
 
