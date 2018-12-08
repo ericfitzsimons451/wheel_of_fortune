@@ -6,7 +6,7 @@ class Game {
     this.bonusRoundLetters = ['r','s','t', 'l', 'n', 'e'];
     this.puzzles = [];
     this.currPuzzle = null;
-    this.currWheel = null;
+    this.currentWheel = null;
     this.currSpinValue = null;
     this.finalRoundPlayer = []  // could be unnecessary BUT might be a way to handle accessing the final player for bonus round
 
@@ -21,7 +21,8 @@ class Game {
     this.createPuzzleBank();
     this.createCurrPuzzle();
     this.players[0].turn = true;
-    this.createWheel();
+    let wheel = new Wheel();
+    wheel.generateValues();
     domUpdates.hideStartScreen();
     domUpdates.displayPuzzle(this.currPuzzle.answer);
     domUpdates.displayCategory(this.currPuzzle.category)
@@ -81,13 +82,13 @@ class Game {
     }
   }
 
-  createWheel() {
-    const wheelValues = data.wheel.sort(function () {
-      return 0.5 - Math.random()
-    }).splice(0, 8)
-    const currWheel = new Wheel(wheelValues)
-    this.currWheel = currWheel;
-  }
+  // createWheel() {
+  //   const wheelValues = data.wheel.sort(function () {
+  //     return 0.5 - Math.random()
+  //   }).splice(0, 8)
+  //   const currWheel = new Wheel(wheelValues)
+  //   this.currWheel = currWheel;
+  // }
 
 
   checkPlayerGuess() {

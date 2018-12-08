@@ -1,5 +1,5 @@
 const domUpdates = {
-  setPlayerNames: function() {
+  setPlayerNames() {
     const player1Name = $('#player-1-input').val();
     const player2Name = $("#player-2-input").val();
     const player3Name = $("#player-3-input").val();
@@ -11,11 +11,11 @@ const domUpdates = {
     return [player1Name, player2Name, player3Name]
   },
 
-  hideStartScreen: function() {
+  hideStartScreen() {
     $('.start-screen').hide();
   },
 
-  displayPuzzle: function(puzzle) {
+  displayPuzzle(puzzle) {
     //after start game
     let splitAnswer = Array.from(puzzle)
     splitAnswer.forEach((character)=> {
@@ -23,7 +23,7 @@ const domUpdates = {
     })
   },
 
-  displayCategory: function(category) {
+  displayCategory(category) {
     $('.curr-category').text(`${category}`)
   }
 } 
