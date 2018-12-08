@@ -21,8 +21,14 @@ const domUpdates = {
     splitAnswer.forEach((character)=> {
       const chars = $(".board-background").append(`<li class="board-space">${character}</li>`);
     })
+  },
+
+  displayCategory: function(category) {
+    $('.curr-category').text(`${category}`)
   }
 } 
+
+
 
 
 if (typeof module !== 'undefined') {

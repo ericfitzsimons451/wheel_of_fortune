@@ -24,6 +24,7 @@ class Game {
     this.createWheel();
     domUpdates.hideStartScreen();
     domUpdates.displayPuzzle(this.currPuzzle.answer);
+    domUpdates.displayCategory(this.currPuzzle.category)
   }
 
   createPlayers() {
