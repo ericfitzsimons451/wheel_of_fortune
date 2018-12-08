@@ -7,6 +7,9 @@ class Game {
     this.puzzles = [];
     this.currPuzzle = null;
     this.currWheel = null;
+    this.finalRoundPlayer = []  // could be unnecessary BUT might be a way to handle accessing the final player for bonus round
+
+
     // this.wheels =; //[wheel1, wheel2, wheel3, wheel4]
     // this.bonusPuzzle = ;//bonusPuzzle;
     // this.bonusWheel = ;//bonusWheel;
@@ -46,6 +49,21 @@ class Game {
   }
 
   createCurrPuzzle() {
+
+    // var round = this.currRound;
+    // switch (round) {
+    //   case this.currRound === 1:
+    //     this.currPuzzle = new Puzzle(this.puzzles[0]);
+    //   break;
+    //   case this.currRound === 2:
+    //     this.currPuzzle = new Puzzle(this.puzzles[1]);
+    //   break;
+    //   case this.currRound === 3:
+    //     this.currPuzzle = new Puzzle(this.puzzles[2]);
+    //   break;
+    //   case this.currRound === 4:
+    //     this.currPuzzle = new Puzzle(this.puzzles[3]);
+    // }
     //switch statement here?
     if (this.currRound === 1) {
       this.currPuzzle = new Puzzle(this.puzzles[0]);
@@ -68,20 +86,42 @@ class Game {
     this.currWheel = currWheel;
   }
 
-  updatePlayerScore() {
-
-  }
 
   checkPlayerGuess() {
-
+    // triggered by player.guessLetter
+    // if they choose the correct letter
+    //    check for how many letters match the guess
+    //    fire game.updatePlayerScore
+    //    some dom manipulation
+    //
+    //  if they choose the wrong letter
+    //    fire game.updatePlayer turn
+   
   }
 
   checkPlayerSolution() {
+    // grab value from player input (maybe happens in DOM updates?)
+    // to lowerCase the puzzle value AND player's input value
+    // validate answer somehow.  guess === answerguess
+    // if  player's guess is TRUE
+    //.     update player.roundScore
+    //      increment that value in player.bank
+    //      fire game.changeRounds
+    //      fire game.updatePlayerTurn?????
 
+    //. if player's guess is false
+    //      fire game.updatePlayerTurn
   }
 
+  updatePlayerScore() {
+    // multiply player/wheel.currentSpinValue by number of correct letters
+    // return that value as player.roundPoints
+  }
 
-
+  updatePlayerTurn() {
+    //    update player.turn to false
+    //    update nextPlayer.turn to true
+  }
 
   changeRounds() {
     //instantiate new wheel
@@ -92,13 +132,45 @@ class Game {
   }
 
   declareWinner() {
+    // if round# is strictly equal to 4 AND currentPlayer solves puzzle
+    //    1.  find which player.bank is the highest
+    //        push them into game.finalPlayer array
+    //  OR
+    //.    2.  find highest player.bank and set other players turns to false
+    //         fire game.startBonusRound
+    //         do something on DOM  (display info about winner AND instructions for final round)
 
   }
 
   startBonusRound() {
-    //show bonus round screen on DOM
+    //  instantiate new BONUS WHeel class object
+    //  show bonus round screen on DOM
+    //  Display some instructions for player
+    //  display pre-selected letter on puzzle. (DOM)
+  }
 
+  bonusRoundLetterSubmission() {
+    // if letters are there, put them there
+    //. ++++++ maybe this happens only in DOM updates? ++++++
+  }
 
+  checkBonusRoundSolution() {
+    // grab value from player input (maybe happens in DOM updates?)
+    // to lowerCase the puzzle value AND player's input value
+    // validate answer somehow.  guess === answerguess
+    // if  player's guess is TRUE
+    //.     update player.roundScore with bonusWheel value
+    //      increment that value in player.bank
+    //      display something that says 'You won!' and final score
+    //      Offer an exit game option
+  
+    
+
+    //. if player's guess is false
+    //      fire game.youAreHorribleAtWheel.  ==== DOM manipulation
+    //      display something that says your final score
+    //      Offer an exit game option
+  }
   }
 
   exitGame() {
