@@ -20,28 +20,28 @@ describe('Game', function() {
 
   beforeEach(function() {
     game = new Game();
+    game.startGame()
   });
 
   it('should instantiate a new game with three players', function() {
-    game.startGame()
     expect(game.players.length).to.equal(3);
   });
 
   it('should have a bank of 5 puzzles', function() {
-    game.startGame()
     expect(game.puzzles.length).to.equal(5);
   });
 
   it('should instantiate a new Puzzle object when we start a new game', function() {
-    game.startGame();
     expect(game.currPuzzle).to.be.an.instanceOf(Puzzle)
   })
   
   it('should instantiate a new Wheel object when we start a new game', function() {
-    game.startGame();
     expect(game.currWheel).to.be.an.instanceOf(Wheel);
-  })
+  })    //. We have this test in 2 different places.  Where should it live?
 
+  it('should create a game object with 9 keys', function() {
+    expect(game).to.have.all.keys('players', 'rounds', 'currRound', 'bonusRoundLetters', 'puzzles', 'currPuzzle', 'currWheel', 'currSpinValue', 'finalRoundPlayer')
+  })
 
     // expect(domUpdates.setPlayerNames).to.have.been.called(1);
     // expect(domUpdates.setPlayerNames).to.have.been.called.with(['John', 'Joe', 'Bill'])

@@ -3,10 +3,11 @@ class Game {
     this.players = []; //[player1, player2, player3]?
     this.rounds = 4;
     this.currRound = 1;
-    this.bonusRoundConsonants = ['r','s','t', 'l', 'n', 'e'];
+    this.bonusRoundLetters = ['r','s','t', 'l', 'n', 'e'];
     this.puzzles = [];
     this.currPuzzle = null;
     this.currWheel = null;
+    this.currSpinValue = null;
     this.finalRoundPlayer = []  // could be unnecessary BUT might be a way to handle accessing the final player for bonus round
 
 
@@ -171,7 +172,7 @@ class Game {
     //      display something that says your final score
     //      Offer an exit game option
   }
-  }
+  
 
   exitGame() {
     //refresh page?

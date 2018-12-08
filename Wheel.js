@@ -1,7 +1,6 @@
 class Wheel {
   constructor(values) {
     this.values = values;
-    this.currentWheelValue = null
     //do we need to break out by values?
     //or can we break into an array [val1, val2... val6]
   }
