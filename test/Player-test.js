@@ -11,6 +11,7 @@ global.Puzzle = require('../Puzzle.js')
 
 describe('Player', function() {
   var player;
+  
   beforeEach(function() {
     player = new Player('name');
   });

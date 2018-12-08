@@ -43,6 +43,10 @@ describe('Game', function() {
     expect(game).to.have.all.keys('players', 'rounds', 'currRound', 'bonusRoundLetters', 'puzzles', 'currPuzzle', 'currWheel', 'currSpinValue', 'finalRoundPlayer')
   })
 
+  it('should create puzzle objects with 5 keys', function() {
+    expect(game.puzzles[0]).to.have.all.keys('category', 'answer', 'totalNumLetters', 'totalNumWords', 'numLettersInFirstWord')
+  })
+
     // expect(domUpdates.setPlayerNames).to.have.been.called(1);
     // expect(domUpdates.setPlayerNames).to.have.been.called.with(['John', 'Joe', 'Bill'])
   })
