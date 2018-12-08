@@ -7,6 +7,7 @@ global.domUpdates = require('../domUpdates.js')
 global.data = require('../Data.js')
 global.Player = require('../Player.js')
 global.Puzzle = require('../Puzzle.js')
+global.Wheel = require('../Wheel.js')
 
 chai.spy.on(global.domUpdates, ['setPlayerNames'], () => { //for testing functions that actually return something
   return ['John', 'Joe', 'Bill']
@@ -34,6 +35,11 @@ describe('Game', function() {
   it('should instantiate a new Puzzle object when we start a new game', function() {
     game.startGame();
     expect(game.currPuzzle).to.be.an.instanceOf(Puzzle)
+  })
+  
+  it('should instantiate a new Wheel object when we start a new game', function() {
+    game.startGame();
+    expect(game.currWheel).to.be.an.instanceOf(Wheel);
   })
 
 

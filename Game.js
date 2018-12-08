@@ -6,6 +6,7 @@ class Game {
     this.bonusRoundConsonants = ['r','s','t', 'l', 'n', 'e'];
     this.puzzles = [];
     this.currPuzzle = null;
+    this.currWheel = null;
     // this.wheels =; //[wheel1, wheel2, wheel3, wheel4]
     // this.bonusPuzzle = ;//bonusPuzzle;
     // this.bonusWheel = ;//bonusWheel;
@@ -16,7 +17,7 @@ class Game {
     this.createPuzzleBank();
     this.createCurrPuzzle();
     this.players[0].turn = true;
-    // this.createWheel(data);
+    this.createWheel();
     domUpdates.hideStartScreen();
   }
 
@@ -59,12 +60,13 @@ class Game {
     }
   }
 
-  // createWheel(data) {
-  //   const wheelValues = data.wheel.sort(function () {
-  //     return 0.5 - Math.random()
-  //   }).splice(0, 8)
-  //   const theWheel = new Wheel(wheelValues)
-  // }
+  createWheel() {
+    const wheelValues = data.wheel.sort(function () {
+      return 0.5 - Math.random()
+    }).splice(0, 8)
+    const currWheel = new Wheel(wheelValues)
+    this.currWheel = currWheel;
+  }
 
   updatePlayerScore() {
 
