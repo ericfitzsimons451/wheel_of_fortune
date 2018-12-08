@@ -13,8 +13,17 @@ const domUpdates = {
 
   hideStartScreen: function() {
     $('.start-screen').hide();
+  },
+
+  displayPuzzle: function(puzzle) {
+    //after start game
+    let splitAnswer = Array.from(puzzle)
+    splitAnswer.forEach((character)=> {
+      const chars = $(".board-background").append(`<li class="board-space">${character}</li>`);
+    })
   }
 } 
+
 
 if (typeof module !== 'undefined') {
   module.exports = domUpdates;

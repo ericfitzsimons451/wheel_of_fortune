@@ -23,6 +23,7 @@ class Game {
     this.players[0].turn = true;
     this.createWheel();
     domUpdates.hideStartScreen();
+    domUpdates.displayPuzzle(this.currPuzzle.answer);
   }
 
   createPlayers() {
