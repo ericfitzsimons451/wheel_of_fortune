@@ -12,6 +12,10 @@ class Wheel {
     this.values.push(wheelValues)
   }
 
+  spin() {
+    //select randiom index
+  }
+
 
   //do we need a method here to generate the values on any wheel intantiation?
   //or should that method live on a different class? 

@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.players = []; //[player1, player2, player3]?
+    this.players = []; 
     this.rounds = 4;
     this.currRound = 1;
     this.bonusRoundLetters = ['r','s','t', 'l', 'n', 'e'];
@@ -29,7 +29,18 @@ class Game {
   }
 
   createPlayers() {
-    const playerNames = domUpdates.setPlayerNames();
+    const player1Name = $('#player-1-input').val();
+    const player2Name = $('#player-2-input').val();
+    const player3Name = $('#player-3-input').val();
+
+    const playerNames = []
+
+    // $('.display-player1-name').text(`Player 1: ${player1Name}`);
+    // $('.display-player2-name').text(`Player 2: ${player2Name}`);
+    // $('.display-player3-name').text(`Player 3: ${player3Name}`);
+
+    playerNames.push(player1Name, player2Name, player3Name)
+
     let player1 = new Player(playerNames[0]);
     let player2 = new Player(playerNames[1]);
     let player3 = new Player(playerNames[2]);
@@ -37,6 +48,9 @@ class Game {
     this.players.push(player1);
     this.players.push(player2);
     this.players.push(player3);
+
+    domUpdates.setPlayerNames(playerNames);
+
   }
 
   createPuzzleBank() {
@@ -118,11 +132,13 @@ class Game {
   }
 
   updatePlayerScore() {
+    // MAYBE MOVE TO PLAYER
     // multiply player/wheel.currentSpinValue by number of correct letters
     // return that value as player.roundPoints
   }
 
   updatePlayerTurn() {
+    //MAYBE MOVE TO PLAYER CLASS
     //    update player.turn to false
     //    update nextPlayer.turn to true
   }

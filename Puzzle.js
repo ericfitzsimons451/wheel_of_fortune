@@ -5,6 +5,8 @@ class Puzzle {
     this.totalNumLetters = puzzleObject.total_number_of_letters//same as above
     this.totalNumWords = puzzleObject.number_of_words//same as above
     this.numLettersInFirstWord = puzzleObject.first_word//same
+    this.possiblePuzzles = []//array of all possible
+    //comes from 'game.createPuzzleBank'
   }
 
 
