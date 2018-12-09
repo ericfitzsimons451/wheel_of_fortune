@@ -126,11 +126,14 @@ body {
 }
 
 .curr-category {
-    padding-bottom: 15px;
-    margin: 10px;
-    font-family: 'Bungee', cursive;
-    font-size: 40px;
-    text-align: center;
+  padding-bottom: 15px;
+  margin: 10px;
+  font-family: 'Bungee', cursive;
+  font-size: 40px;
+  height: 150px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center
 }
 
 /* Word Bank and Buttons Area Styling */
@@ -138,44 +141,124 @@ body {
   background-color: #0E5144;
   display: flex;
   justify-content: space-between;
+  height: 225px;
+  font-family: 'Bungee', cursive;
+
 }
 
-.letter-bank {
+.guessed-letters {
   text-align: center;
+  margin-left: 20px;
 }
 
+.guessed-letters h3 {
+  font-size: 25px;
+    margin: 15px 0px;
+}
 .consonants {
   display: flex;
   flex-wrap: wrap;
   width: 250px;
   justify-content: center;
+  padding: 0px;
 }
 
 .letter-btn {
-  list-style: none;
-  font-size: 20px;
+    list-style: none;
+    font-size: 23px;
+    padding: 0px 10px;
 }
 
 .buy-a-vowel {
   text-align: center;
 }
 
+.buy-a-vowel h3 {
+    font-size: 25px;
+    margin: 15px 0px;
+}
+
 .vowels {
-  display: flex;
-  flex-wrap: wrap;
-  width: 250px;
-  justify-content: center;  
+  padding: 0px;
 }
 
 .vowel-btn {
   list-style: none;
+  font-size: 25px;
+}
+
+/* Guess Letter or Solve Puzzle */
+
+.player-guess-solve {
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.guess-letter-area {
+    display: flex;
+    align-items: center;
+    padding-bottom: 25px;
+}
+
+.guess-letter-btn {
+  background-color: red;
+  color: white;
+  height: 30px;
+  border: 1px solid transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-family: 'Bungee', cursive;
   font-size: 20px;
+  outline: none;
+}
+
+.solve-puzzle-area {
+  display: flex;
+  align-items: center;
+}
+
+.solve-puzzle-btn {
+  background-color: red;
+  color: white;
+  height: 30px;
+  border: 1px solid transparent;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-family: 'Bungee', cursive;
+  font-size: 20px;
+  outline: none;
+}
+
+.player-inputs {
+  height: 30px;
+  border: 1px solid transparent;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  padding-left: 5px;
+  width: 180px;
+}
+
+
+.spin-btn-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
 }
 
 .spin-btn {
-  width: 125px;
-  height: 85px;
+  width: 130px;
+  height: 80px;
   border-radius: 40px;
+  font-family: 'Bungee', cursive;
+  font-size: 30px;
+}
+
+.current-spin-value {
+  margin: 0;
+  font-size: 30px;
 }
 
 .solve-btn {
@@ -187,9 +270,11 @@ body {
 /* Player Area */
 
 .player-area {
-  background-color: #00362B;
+  background-color: black;
   display: flex;
   justify-content: space-around;
+  font-family: 'Open Sans', sans-serif;
+  padding-top: 25px;
 }
 
 .player-card {
@@ -198,4 +283,17 @@ body {
   height: 195px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.player-card-name {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.player-round-score {
+  margin-left: 10px;
+}
+
+.player-total-score {
+  margin-left: 10px;
 }
