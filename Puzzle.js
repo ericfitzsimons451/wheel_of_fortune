@@ -1,19 +1,55 @@
 class Puzzle {
-  constructor(puzzleObject) {
-    this.category = puzzleObject.category//will this come from a method on our game class? iterate through data to populate properties?
-    this.answer = puzzleObject.correct_answer//same as above
-    this.totalNumLetters = puzzleObject.total_number_of_letters//same as above
-    this.totalNumWords = puzzleObject.number_of_words//same as above
-    this.numLettersInFirstWord = puzzleObject.first_word//same
-    this.possiblePuzzles = []//array of all possible
-    //comes from 'game.createPuzzleBank'
+  constructor() {
+    // this.category = null
+    // this.answer = null
+    // this.totalNumLetters = null
+    // this.totalNumWords = null
+    // this.numLettersInFirstWord = null
+
+    // ASK INSTRUCTORS IF THIS ORGINIZATION IS OK
+
+    this.currentPuzzle = null;
+    this.puzzleBank = this.createPuzzleBank();
+    this.roundPuzzle = this.setPuzzleForRound();
   }
 
+  createPuzzleBank() {
+    console.log('hello, ya?')
+    const puzzleKeys = Object.keys(data.puzzles)
+    const puzzleBank = puzzleKeys.reduce((arr, puzzleKey) => {
+      arr.push(...data.puzzles[puzzleKey].puzzle_bank)
+      return arr
+    }, []).sort(function () {
+      return 0.5 - Math.random()
+    }).slice(0, 5)
 
+    const fivePuzzles = puzzleBank.slice(0, 5)
+    return fivePuzzles
+  }
+
+  setPuzzleForRound() {
+    console.log(this)
+    if(this.currentPuzzle) {
+
+     if (game.currentRound === 1) {
+      this.currentPuzzle = this.puzzleBank[0];
+    } else if (this.currentRound === 2) {
+      this.currentPuzzle = this.puzzleBank[1];
+    } else if (this.currentRound ===3) {
+      this.currentPuzzle = this.puzzleBank[2];
+    } else if (this.currentRound === 4){
+      this.currentPuzzle = this.puzzleBank[3];
+    } else {
+      this.currentPuzzle = this.puzzleBank[4];
+    }
+
+  } else {
+    this.currentPuzzle = this.puzzleBank[0]
+  }
 
 }
 
-
+}
 if (typeof module !== 'undefined'){
   module.exports = Puzzle;
 }

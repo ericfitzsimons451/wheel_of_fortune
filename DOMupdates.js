@@ -10,6 +10,7 @@ const domUpdates = {
   },
 
   displayPuzzle(puzzle) {
+    console.log('domUpdates', puzzle)
     //after start game
     let splitAnswer = Array.from(puzzle)
     splitAnswer.forEach((character)=> {

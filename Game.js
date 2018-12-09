@@ -2,30 +2,22 @@ class Game {
   constructor() {
     this.players = []; 
     this.rounds = 4;
-    this.currRound = 1;
+    this.currentRound = 1;
     this.bonusRoundLetters = ['r','s','t', 'l', 'n', 'e'];
-    this.puzzles = [];
-    this.currPuzzle = null;
-    this.currentWheel = null;
+    this.puzzle = new Puzzle();
+    this.wheel = new Wheel();
     this.currSpinValue = null;
-    this.finalRoundPlayer = []  // could be unnecessary BUT might be a way to handle accessing the final player for bonus round
+    this.finalRoundPlayer = []
 
-
-    // this.wheels =; //[wheel1, wheel2, wheel3, wheel4]
-    // this.bonusPuzzle = ;//bonusPuzzle;
-    // this.bonusWheel = ;//bonusWheel;
+    // could be unnecessary BUT might be a way to handle accessing the final player for bonus round
   }
 
   startGame() {
     this.createPlayers();
-    this.createPuzzleBank();
-    this.createCurrPuzzle();
     this.players[0].turn = true;
-    let wheel = new Wheel();
-    wheel.generateValues();
     domUpdates.hideStartScreen();
-    domUpdates.displayPuzzle(this.currPuzzle.answer);
-    domUpdates.displayCategory(this.currPuzzle.category)
+    domUpdates.displayPuzzle(this.currentPuzzle.correct_answer);
+    domUpdates.displayCategory(this.currentPuzzle.category)
   }
 
   createPlayers() {
@@ -34,10 +26,6 @@ class Game {
     const player3Name = $('#player-3-input').val();
 
     const playerNames = []
-
-    // $('.display-player1-name').text(`Player 1: ${player1Name}`);
-    // $('.display-player2-name').text(`Player 2: ${player2Name}`);
-    // $('.display-player3-name').text(`Player 3: ${player3Name}`);
 
     playerNames.push(player1Name, player2Name, player3Name)
 
@@ -50,60 +38,7 @@ class Game {
     this.players.push(player3);
 
     domUpdates.setPlayerNames(playerNames);
-
   }
-
-  createPuzzleBank() {
-    const puzzleKeys = Object.keys(data.puzzles)
-    const puzzleBank = puzzleKeys.reduce((arr, puzzleKey) => {
-      arr.push(...data.puzzles[puzzleKey].puzzle_bank)
-      return arr
-    }, []).sort(function () {
-      return 0.5 - Math.random()
-    }).slice(0, 5)
-
-    const fivePuzzles = puzzleBank.slice(0, 5)
-    this.puzzles.push(...fivePuzzles)
-  }
-
-  createCurrPuzzle() {
-
-    // var round = this.currRound;
-    // switch (round) {
-    //   case this.currRound === 1:
-    //     this.currPuzzle = new Puzzle(this.puzzles[0]);
-    //   break;
-    //   case this.currRound === 2:
-    //     this.currPuzzle = new Puzzle(this.puzzles[1]);
-    //   break;
-    //   case this.currRound === 3:
-    //     this.currPuzzle = new Puzzle(this.puzzles[2]);
-    //   break;
-    //   case this.currRound === 4:
-    //     this.currPuzzle = new Puzzle(this.puzzles[3]);
-    // }
-    //switch statement here?
-    if (this.currRound === 1) {
-      this.currPuzzle = new Puzzle(this.puzzles[0]);
-    } else if (this.currRound === 2) {
-      this.currPuzzle = new Puzzle(this.puzzles[1]);
-    } else if (this.currRound ===3) {
-      this.currPuzzle = new Puzzle(this.puzzles[2]);
-    } else if (this.currRound === 4){
-      this.currPuzzle = new Puzzle(this.puzzles[3]);
-    } else {
-      this.currPuzzle = new Puzzle(this.puzzles[4]);
-    }
-  }
-
-  // createWheel() {
-  //   const wheelValues = data.wheel.sort(function () {
-  //     return 0.5 - Math.random()
-  //   }).splice(0, 8)
-  //   const currWheel = new Wheel(wheelValues)
-  //   this.currWheel = currWheel;
-  // }
-
 
   checkPlayerGuess() {
     // triggered by player.guessLetter
