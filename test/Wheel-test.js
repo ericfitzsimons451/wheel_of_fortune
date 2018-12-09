@@ -14,16 +14,20 @@ describe('Wheel', function() {
   
   beforeEach(function() {
     game = new Game();
-    game.startGame();
   });
 
   it('should instantiate a new Wheel object when we start a new game', function() {
-    expect(game.currWheel).to.be.an.instanceOf(Wheel);
+    expect(wheel).to.be.an.instanceOf(Wheel);
   })
 
   it('should instantiate a new Wheel with 1 key', function() {
     expect(game.currWheel).to.have.all.keys('values')
   })
+
+  it('should have 8 values', function() {
+    expect(wheel.values).to.have.lengthOf(8)
+  })
+  
 
 
   //test the spin method

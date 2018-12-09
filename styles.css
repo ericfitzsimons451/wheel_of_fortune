@@ -290,6 +290,10 @@ body {
   margin-left: 10px;
 }
 
+.current-player {
+  color: red;
+}
+
 .player-round-score {
   margin-left: 10px;
 }

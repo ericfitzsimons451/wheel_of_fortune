@@ -16,8 +16,9 @@ class Game {
     this.createPlayers();
     this.players[0].turn = true;
     domUpdates.hideStartScreen();
-    domUpdates.displayPuzzle(this.currentPuzzle.correct_answer);
-    domUpdates.displayCategory(this.currentPuzzle.category)
+    domUpdates.displayCurrentPlayerTurn();
+    domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer);
+    domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
   }
 
   createPlayers() {

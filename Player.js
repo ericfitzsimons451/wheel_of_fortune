@@ -11,8 +11,19 @@ class Player {
 
 
   spinWheel() {
-    //wheel gets a value from its own method
+    this.currentSpinValue = wheel.spin()
 
+    if (this.currentSpinValue === "LOSE A TURN") {
+      this.turn = false;
+      domUpdates.displayCurrentPlayerTurn();
+    } else if (this.currentSpinValue === "BANKRUPT") {
+      this.roundPoints = 0;
+      this.turn = false;
+      domUpdates.displayCurrentPlayerTurn()
+    } else {
+      domUpdates.displaySpinValue(this.currentSpinValue)
+    }
+  }
     //wheel gives that value to itself and player class
     //player.spinvalue is updated with wheel.spinvalue
     //DOM manipulation...displays current value
@@ -23,7 +34,7 @@ class Player {
     // if value is 'bankrupt
     //. update player.roundPoints to zero
     // fire game.updatePlayerTurn
-  }
+  
 
   guessLetter() {
     //this function is triggered by any of the click handlers on letter board

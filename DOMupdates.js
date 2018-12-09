@@ -10,8 +10,6 @@ const domUpdates = {
   },
 
   displayPuzzle(puzzle) {
-    console.log('domUpdates', puzzle)
-    //after start game
     let splitAnswer = Array.from(puzzle)
     splitAnswer.forEach((character)=> {
       const chars = $(".board-background").append(`<li class="board-space">${character}</li>`);
@@ -19,9 +17,27 @@ const domUpdates = {
   },
 
   displayCategory(category) {
-    $('.curr-category').text(`${category}`)
+    $('.curr-category').text(`${category}`);
+  },
+
+  displaySpinValue(value) {
+    $('.current-spin-value').text(`${value}`);
+  },
+
+  displayCurrentPlayerTurn() {
+    if ((game.players[0].turn = true)) {
+      $(".display-player3-name").removeClass("current-player");
+      $(".display-player1-name").addClass("current-player");
+    } else if ((game.players[1].turn = true)) {
+      $(".display-player1-name").removeClass("current-player");
+      $(".display-player2-name").addClass("current-player");
+    } else if ((game.players[2].turn = true)) {
+      $(".display-player2-name").removeClass("current-player");
+      $(".display-player3-name").addClass("current-player");
+    }
   }
 } 
+
 
 
 

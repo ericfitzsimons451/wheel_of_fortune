@@ -20,16 +20,14 @@ describe('Game', function() {
 
   beforeEach(function() {
     game = new Game();
-    game.startGame()
   });
 
   it('should instantiate a new game with three players', function() {
-    expect(game.players.length).to.equal(3);
+    game.startGame();
+    expect(game.players).to.have.lengthOf(3);
   });
 
-  it('should have a bank of 5 puzzles', function() {
-    expect(game.puzzles.length).to.equal(5);
-  });
+
 
   it('should instantiate a new Puzzle object when we start a new game', function() {
     expect(game.currPuzzle).to.be.an.instanceOf(Puzzle)

@@ -14,7 +14,6 @@ class Puzzle {
   }
 
   createPuzzleBank() {
-    console.log('hello, ya?')
     const puzzleKeys = Object.keys(data.puzzles)
     const puzzleBank = puzzleKeys.reduce((arr, puzzleKey) => {
       arr.push(...data.puzzles[puzzleKey].puzzle_bank)
@@ -28,7 +27,6 @@ class Puzzle {
   }
 
   setPuzzleForRound() {
-    console.log(this)
     if(this.currentPuzzle) {
 
      if (game.currentRound === 1) {
