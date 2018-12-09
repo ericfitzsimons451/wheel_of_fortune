@@ -1,8 +1,8 @@
 const domUpdates = {
   setPlayerNames(playerNames) {
-    $('.display-player1-name').text(`Player 1: ${playerNames[0]}`);
-    $('.display-player2-name').text(`Player 2: ${playerNames[1]}`);
-    $('.display-player3-name').text(`Player 3: ${playerNames[2]}`);
+    $('.display-player1-name').text(`${playerNames[0]}`);
+    $('.display-player2-name').text(`${playerNames[1]}`);
+    $('.display-player3-name').text(`${playerNames[2]}`);
   },
 
   hideStartScreen() {
@@ -29,13 +29,14 @@ const domUpdates = {
   },
 
   displayCurrentPlayerTurn() {
-    if ((game.players[0].turn = true)) {
+
+    if (game.players[0].name === $(".display-player1-name").text()) {
       $(".display-player3-name").removeClass("current-player");
       $(".display-player1-name").addClass("current-player");
-    } else if ((game.players[1].turn = true)) {
+    } else if (game.players[0].name === $(".display-player2-name").text()) {
       $(".display-player1-name").removeClass("current-player");
       $(".display-player2-name").addClass("current-player");
-    } else if ((game.players[2].turn = true)) {
+    } else if (game.players[0].name === $(".display-player3-name").text()) {
       $(".display-player2-name").removeClass("current-player");
       $(".display-player3-name").addClass("current-player");
     }

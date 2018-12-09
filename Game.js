@@ -15,6 +15,7 @@ class Game {
   startGame() {
     this.createPlayers();
     domUpdates.hideStartScreen();
+    console.log($(".display-player1-name").text())
     domUpdates.displayCurrentPlayerTurn();
     domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer);
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
@@ -55,7 +56,6 @@ class Game {
     //
     //  if they choose the wrong letter
     //    fire game.updatePlayer turn
-   
   }
 
   checkPlayerSolution() {

@@ -259,6 +259,7 @@ body {
 .current-spin-value {
   margin: 0;
   font-size: 30px;
+  color: white;
 }
 
 .solve-btn {
