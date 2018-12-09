@@ -11,7 +11,8 @@ class Player {
 
 
   spinWheel() {
-    //wheel gets a value
+    //wheel gets a value from its own method
+
     //wheel gives that value to itself and player class
     //player.spinvalue is updated with wheel.spinvalue
     //DOM manipulation...displays current value

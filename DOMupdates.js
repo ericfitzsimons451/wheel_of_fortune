@@ -1,14 +1,8 @@
 const domUpdates = {
-  setPlayerNames() {
-    const player1Name = $('#player-1-input').val();
-    const player2Name = $("#player-2-input").val();
-    const player3Name = $("#player-3-input").val();
-
-    $('.display-player1-name').text(`Player 1: ${player1Name}`);
-    $('.display-player2-name').text(`Player 2: ${player2Name}`);
-    $('.display-player3-name').text(`Player 3: ${player3Name}`);
-
-    return [player1Name, player2Name, player3Name]
+  setPlayerNames(playerNames) {
+    $('.display-player1-name').text(`Player 1: ${playerNames[0]}`);
+    $('.display-player2-name').text(`Player 2: ${playerNames[1]}`);
+    $('.display-player3-name').text(`Player 3: ${playerNames[2]}`);
   },
 
   hideStartScreen() {
@@ -16,6 +10,7 @@ const domUpdates = {
   },
 
   displayPuzzle(puzzle) {
+    console.log('domUpdates', puzzle)
     //after start game
     let splitAnswer = Array.from(puzzle)
     splitAnswer.forEach((character)=> {

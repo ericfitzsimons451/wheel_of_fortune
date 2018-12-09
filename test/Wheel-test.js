@@ -25,6 +25,10 @@ describe('Wheel', function() {
     expect(game.currWheel).to.have.all.keys('values')
   })
 
+
+  //test the spin method
+  
+
   // it('should create a wheel that has 8 values in wheel.values', function() {
   //   expect(wheel.values.length).to.equal(8);
   // })

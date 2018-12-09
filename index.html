@@ -42,8 +42,8 @@
       <h3 class="curr-category">Category</h3>
     </div>
     <section class="bank-buttons-area">
-      <div class="letter-bank">
-        <h3>Letter Bank</h3>
+      <div class="guessed-letters">
+        <h3>Guess Letters</h3>
         <ul class="consonants">
           <li class="letter-btn">Q</li>
           <li class="letter-btn">W</li>
@@ -78,8 +78,22 @@
           <li class="vowel-btn">U</li>
         </ul>
       </div>
-      <button class="spin-btn">Spin</button>
-      <button class="solve-btn">Solve</button>
+      <div class="player-guess-solve">
+        <div class="guess-letter-area">
+          <input class="player-inputs" type="text" placeholder="Guess Letter">
+          <button class="guess-letter-btn">Guess</button>
+        </div>
+        <div class="solve-puzzle-area">
+          <input class="player-inputs" type="text" placeholder="Solve Puzzle">
+          <button class="solve-puzzle-btn">Solve</button>
+        </div>
+      </div>
+     
+      <div class="spin-btn-area">
+        <button class="spin-btn">Spin</button>
+        <p> Current guess is worth</p>
+        <p class="current-spin-value">$500</p>
+      </div>
     </section>
     <footer class="player-area">
       <article class="player-card">
@@ -99,8 +113,8 @@
       </article>
     </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="Data.js"></script>
 <script src="domUpdates.js"></script>
+<script src="Data.js"></script>
 <script src="Game.js"></script>
 <script src="Player.js"></script>
 <script src="Puzzle.js"></script>
