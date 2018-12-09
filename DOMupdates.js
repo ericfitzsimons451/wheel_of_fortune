@@ -21,7 +21,11 @@ const domUpdates = {
   },
 
   displaySpinValue(value) {
-    $('.current-spin-value').text(`${value}`);
+    if(value === "LOSE A TURN" || value === 'BANKRUPT') {
+      $('.current-spin-value').text(`${value}`);
+    } else {
+      $(".current-spin-value").text(`$${value}`);
+    }
   },
 
   displayCurrentPlayerTurn() {

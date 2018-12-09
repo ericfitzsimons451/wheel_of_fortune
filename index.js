@@ -1,7 +1,15 @@
 let game = new Game();
+
+
 $('.start-game-btn').on('click', function(){
   game.startGame();
+});
+
+$('.spin-btn').on('click', function() {
+  game.players[0].spinWheel();
 })
+
+
 
 // let puzzle;
 // //Functions for Event Handlers

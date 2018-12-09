@@ -1,7 +1,7 @@
 class Player {
   constructor(name) {
     this.name = name;
-    this.turn = false;
+    // this.turn = false;
     this.roundPoints = 0;
     this.bank = 0;
     this.currentSpinValue = null;
@@ -11,7 +11,8 @@ class Player {
 
 
   spinWheel() {
-    this.currentSpinValue = wheel.spin()
+    this.currentSpinValue = game.wheel.spin();
+    domUpdates.displaySpinValue(this.currentSpinValue)
 
     if (this.currentSpinValue === "LOSE A TURN") {
       this.turn = false;

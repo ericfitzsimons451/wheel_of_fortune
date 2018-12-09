@@ -14,12 +14,12 @@ class Game {
 
   startGame() {
     this.createPlayers();
-    this.players[0].turn = true;
     domUpdates.hideStartScreen();
     domUpdates.displayCurrentPlayerTurn();
     domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer);
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
   }
+
 
   createPlayers() {
     const player1Name = $('#player-1-input').val();
@@ -39,6 +39,11 @@ class Game {
     this.players.push(player3);
 
     domUpdates.setPlayerNames(playerNames);
+  }
+
+  changePlayerTurn() {
+     let player = this.players.shift();
+     this.players.push(player);
   }
 
   checkPlayerGuess() {
