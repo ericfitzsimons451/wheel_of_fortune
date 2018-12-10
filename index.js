@@ -3,26 +3,14 @@ $('.start-game-btn').on('click', function(){
   game.startGame();
 });
 
-// function getPlayerNames(){
-//   const player1Name = $('#player-1-input').val();
-//   const player2Name = $('#player-2-input').val();
-//   const player3Name = $('#player-3-input').val();
-
-
-//   const playerNames = [];
-//   playerNames.push(player1Name, player2Name, player3Name);
-//   return playerNames;
-// }
-
-
-
-
-
 $('.spin-btn').on('click', function() {
   game.players[0].spinWheel();
 })
 
-
+$('.guess-letter-submit').on('click', function() {
+  const letter = $('.guess-letter-input').val();
+  game.checkPlayerGuess(letter);
+})
 
 // let puzzle;
 // //Functions for Event Handlers

@@ -24,7 +24,13 @@ const domUpdates = {
   displayPuzzle(puzzle) {
     let splitAnswer = Array.from(puzzle)
     splitAnswer.forEach((character)=> {
-      const chars = $(".board-background").append(`<li class="board-space">${character}</li>`);
+      if (character === ' ') {
+        $(".board-background").append(`<li class="board-space space">${character}</li>`);
+      } else if (character === '-' || character === '&') {
+        $(".board-background").append(`<li class="board-space">${character}</li>`);
+      } else {
+        $(".board-background").append(`<li class="board-space hidden">${character}</li>`);
+      }
     })
   },
 
@@ -51,6 +57,20 @@ const domUpdates = {
       $(".display-player2-name").removeClass("current-player");
       $(".display-player3-name").addClass("current-player");
     }
+  },
+
+  showGuessedLetter(letter) {
+    $(".guessed-letter-area").append(`<li class="letter-btn">${letter}</li>`);
+    
+  },
+
+  updatePuzzleOnDom(letter) {
+    console.log($(".board-space"));
+    [...$('.board-space')].forEach((char) => {
+      if (char.innerText === letter) {
+        char.classList.remove('hidden')      
+      }
+    })
   }
 } 
 

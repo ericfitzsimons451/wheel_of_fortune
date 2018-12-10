@@ -125,6 +125,19 @@ body {
   font-family: 'Bungee', cursive;
 }
 
+.hidden {
+  color: black;
+}
+
+
+.test {
+  background-color: yellow;
+}
+
+.space {
+  background-color: red;
+}
+
 .curr-category {
   padding-bottom: 15px;
   margin: 10px;
@@ -155,7 +168,7 @@ body {
   font-size: 25px;
     margin: 15px 0px;
 }
-.consonants {
+.guessed-letter-area {
   display: flex;
   flex-wrap: wrap;
   width: 250px;

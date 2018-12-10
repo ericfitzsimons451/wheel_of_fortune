@@ -16,11 +16,9 @@ class Player {
 
     if (this.currentSpinValue === "LOSE A TURN") {
       game.changePlayerTurn();
-      domUpdates.displayCurrentPlayerTurn();
     } else if (this.currentSpinValue === "BANKRUPT") {
       this.roundPoints = 0;
       game.changePlayerTurn();
-      domUpdates.displayCurrentPlayerTurn()
     } else {
       domUpdates.displaySpinValue(this.currentSpinValue)
     }

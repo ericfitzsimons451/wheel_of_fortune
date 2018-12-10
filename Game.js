@@ -19,6 +19,7 @@ class Game {
     domUpdates.displayCurrentPlayerTurn();
     domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer);
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
+    console.log(game.puzzle.currentPuzzle.correct_answer)
   }
 
 
@@ -37,9 +38,18 @@ class Game {
   changePlayerTurn() {
      let player = this.players.shift();
      this.players.push(player);
+     domUpdates.displayCurrentPlayerTurn();
+     //trigger DOM Updates?
   }
 
-  checkPlayerGuess() {
+  checkPlayerGuess(letter) {
+    domUpdates.showGuessedLetter(letter);
+    if (this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
+      domUpdates.updatePuzzleOnDom(letter);
+      //
+    } else {
+      this.changePlayerTurn();
+    }
     // triggered by player.guessLetter
     // if they choose the correct letter
     //    check for how many letters match the guess
