@@ -57,8 +57,8 @@ class Game {
       return char.toLowerCase() === letter.toLowerCase();
     }).length
     let mutlipliedScore = correctLetterCount * this.players[0].currentSpinValue ;
-    this.players[0].roundPoints += mutlipliedScore;
-    domUpdates.updatePlayerRoundScore(mutlipliedScore);
+    let fullScore = this.players[0].roundPoints += mutlipliedScore;
+    domUpdates.updatePlayerRoundScore(fullScore);
   }
 
   checkPlayerSolution() {

@@ -26,7 +26,7 @@ const domUpdates = {
     splitAnswer.forEach((character)=> {
       if (character === ' ') {
         $(".board-background").append(`<li class="board-space space">${character}</li>`);
-      } else if (character === '-' || character === '&') {
+      } else if (character === '-' || character === '&' || character === '\'') {
         $(".board-background").append(`<li class="board-space">${character}</li>`);
       } else {
         $(".board-background").append(`<li class="board-space hidden">${character}</li>`);
@@ -41,8 +41,10 @@ const domUpdates = {
   displaySpinValue(value) {
     if(value === "LOSE A TURN" || value === 'BANKRUPT') {
       $('.current-spin-value').text(`${value}`);
+      $(".spin-btn").prop("disabled", false);
     } else {
       $(".current-spin-value").text(`$${value}`);
+      $(".spin-btn").prop("disabled", true);
     }
   },
 
@@ -79,6 +81,13 @@ const domUpdates = {
     } else if (game.players[0].name === $(".display-player3-name").text()) {
       $(".player3-score").text(`Score: $${score}`);
     }
+  },
+
+  enableButtons() {
+    $('.guess-letter-btn').prop('disabled', false);
+    $('.guess-letter-input').prop('disabled', false);
+    $('.solve-puzzle-input').prop('disabled', false);
+    $('.solve-puzzle-btn').prop('disabled', false);
   }
 } 
 
