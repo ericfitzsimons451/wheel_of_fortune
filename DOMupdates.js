@@ -61,16 +61,24 @@ const domUpdates = {
 
   showGuessedLetter(letter) {
     $(".guessed-letter-area").append(`<li class="letter-btn">${letter}</li>`);
-    
   },
 
   updatePuzzleOnDom(letter) {
-    console.log($(".board-space"));
     [...$('.board-space')].forEach((char) => {
       if (char.innerText === letter) {
         char.classList.remove('hidden')      
       }
-    })
+    });
+  },
+
+  updatePlayerRoundScore(score) {
+    if (game.players[0].name === $(".display-player1-name").text()) {
+      $(".player1-score").text(`Score: $${score}`);
+    } else if (game.players[0].name === $(".display-player2-name").text()) {
+      $(".player2-score").text(`Score: $${score}`);
+    } else if (game.players[0].name === $(".display-player3-name").text()) {
+      $(".player3-score").text(`Score: $${score}`);
+    }
   }
 } 
 

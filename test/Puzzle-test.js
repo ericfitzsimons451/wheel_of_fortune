@@ -33,6 +33,6 @@ describe('Puzzle', function () {
     console.log(game.puzzle.puzzleBank[0])
     game.currentRound = 2;
     expect(game.puzzle.currentPuzzle).to.equal(game.puzzle.puzzleBank[1]);
-  })  
+  });
 
 });

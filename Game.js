@@ -17,7 +17,7 @@ class Game {
     this.createPlayers(names);
     domUpdates.hideStartScreen();
     domUpdates.displayCurrentPlayerTurn();
-    domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer);
+    domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer.toLowerCase());
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
     console.log(game.puzzle.currentPuzzle.correct_answer)
   }
@@ -39,25 +39,26 @@ class Game {
      let player = this.players.shift();
      this.players.push(player);
      domUpdates.displayCurrentPlayerTurn();
-     //trigger DOM Updates?
   }
 
   checkPlayerGuess(letter) {
     domUpdates.showGuessedLetter(letter);
     if (this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
       domUpdates.updatePuzzleOnDom(letter);
-      //
+      this.updatePlayerScore(letter)
     } else {
       this.changePlayerTurn();
-    }
-    // triggered by player.guessLetter
-    // if they choose the correct letter
-    //    check for how many letters match the guess
-    //    fire game.updatePlayerScore
-    //    some dom manipulation
-    //
-    //  if they choose the wrong letter
-    //    fire game.updatePlayer turn
+    } 
+  }
+
+  updatePlayerScore(letter) {
+    let puzzle = this.puzzle.currentPuzzle.correct_answer.split('')
+    let correctLetterCount = puzzle.filter((char) => {
+      return char.toLowerCase() === letter.toLowerCase();
+    }).length
+    let mutlipliedScore = correctLetterCount * this.players[0].currentSpinValue ;
+    this.players[0].roundPoints += mutlipliedScore;
+    domUpdates.updatePlayerRoundScore(mutlipliedScore);
   }
 
   checkPlayerSolution() {
@@ -74,11 +75,7 @@ class Game {
     //      fire game.updatePlayerTurn
   }
 
-  updatePlayerScore() {
-    // MAYBE MOVE TO PLAYER
-    // multiply player/wheel.currentSpinValue by number of correct letters
-    // return that value as player.roundPoints
-  }
+
 
   updatePlayerTurn() {
     //MAYBE MOVE TO PLAYER CLASS
