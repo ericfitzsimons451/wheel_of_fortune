@@ -39,9 +39,10 @@ const domUpdates = {
   },
 
   displaySpinValue(value) {
+  
     if(value === "LOSE A TURN" || value === 'BANKRUPT') {
       $('.current-spin-value').text(`${value}`);
-      $(".spin-btn").prop("disabled", false);
+      this.disableButtons();
     } else {
       $(".current-spin-value").text(`$${value}`);
       $(".spin-btn").prop("disabled", true);
@@ -80,7 +81,17 @@ const domUpdates = {
       $(".player2-score").text(`Score: $${score}`);
     } else if (player === $(".display-player3-name").text()) {
       $(".player3-score").text(`Score: $${score}`);
-    }
+    } 
+  },
+
+  bankruptPlayer(player) {
+    if (player === $(".display-player1-name").text()) {
+      $(".player1-score").text('Score: $0');
+    } else if (player === $(".display-player2-name").text()) {
+      $(".player2-score").text('Score: $0');
+    } else if (player === $(".display-player3-name").text()) {
+      $(".player3-score").text('Score: $0');
+    } 
   },
 
   enableButtons() {
@@ -88,6 +99,17 @@ const domUpdates = {
     $('.guess-letter-input').prop('disabled', false);
     $('.solve-puzzle-input').prop('disabled', false);
     $('.solve-puzzle-btn').prop('disabled', false);
+  },
+
+  disableButtons() {
+    $('.guess-letter-btn').prop('disabled', true);
+    $('.guess-letter-input').prop('disabled', true);
+    $('.solve-puzzle-input').prop('disabled', true);
+    $('.solve-puzzle-btn').prop('disabled', true);
+  },
+
+  exitGame() {
+    location.reload();
   }
 } 
 

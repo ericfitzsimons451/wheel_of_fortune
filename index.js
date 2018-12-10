@@ -37,3 +37,6 @@ $(".solve-puzzle-btn").on("click", function(e) {
 });
 
 
+$('.exit-btn').on('click', function() {
+  domUpdates.exitGame();
+})

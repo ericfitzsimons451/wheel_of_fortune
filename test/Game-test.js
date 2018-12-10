@@ -36,15 +36,15 @@ describe('Game', function() {
     expect(game.puzzle).to.be.an.instanceOf(Puzzle)
   });
 
-  it('should update a player score', function() {
-    game.startGame();
+  // it('should update a player score', function() {
+  //   game.startGame();
 
-    let score = game.players[0].roundScore;
-    game.updatePlayerScore('a');
-    let score2 = game.players[0].roundScore
-    expect(score).to.not.equal(score2)
+  //   let score = game.players[0].roundScore;
+  //   game.updatePlayerScore('a');
+  //   let score2 = game.players[0].roundScore
+  //   expect(score).to.not.equal(score2)
 
-  })
+  // })
   // it('should be able to change players', function() {
   //   game.startGame();
   //   expect(game.players[0].name).to.equal(game.players[0].name)
