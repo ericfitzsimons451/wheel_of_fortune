@@ -13,7 +13,7 @@ chai.spy.on(global.domUpdates, ['setPlayerNames', 'getPlayerNames'], () => { //f
   return ['John', 'Joe', 'Bill']
 })
 
-chai.spy.on(global.domUpdates, ['hideStartScreen', 'displayCurrentPlayerTurn', 'displayPuzzle', 'displayCategory'], () => true) //did this function happen (doesnt return anything)
+chai.spy.on(global.domUpdates, ['hideStartScreen', 'displayCurrentPlayerTurn', 'displayPuzzle', 'displayCategory', 'createPlayers'], () => true) //did this function happen (doesnt return anything)
 
 describe('Game', function() {
   var game;
@@ -23,22 +23,28 @@ describe('Game', function() {
   });
 
   it('should instantiate a new game with three players', function() {
-    // let getPlayerNames = () => ['A', 'B', 'C']
-    game.startGame();
-    // game.createPlayers(getPlayerNames);
+    let getPlayerNames = () => ['A', 'B', 'C']
+    game.createPlayers(getPlayerNames);
     expect(game.players.length).to.equal(3);
   });
 
   it('should instantiate a new wheel', function() {
-    game.startGame();
     expect(game.wheel).to.be.an.instanceOf(Wheel)
   });
 
   it('should instantiate a new puzzle', function () {
-    game.startGame();
     expect(game.puzzle).to.be.an.instanceOf(Puzzle)
   });
 
+  it('should update a player score', function() {
+    game.startGame();
+
+    let score = game.players[0].roundScore;
+    game.updatePlayerScore('a');
+    let score2 = game.players[0].roundScore
+    expect(score).to.not.equal(score2)
+
+  })
   // it('should be able to change players', function() {
   //   game.startGame();
   //   expect(game.players[0].name).to.equal(game.players[0].name)

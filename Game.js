@@ -15,11 +15,12 @@ class Game {
   startGame() {
     let names = domUpdates.getPlayerNames();
     this.createPlayers(names);
+    this.wheel.generateValues();  
     domUpdates.hideStartScreen();
     domUpdates.displayCurrentPlayerTurn();
     domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer.toLowerCase());
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
-    console.log(game.puzzle.currentPuzzle.correct_answer)
+    // console.log(game.puzzle.currentPuzzle.correct_answer)
   }
 
 
@@ -34,6 +35,7 @@ class Game {
 
     domUpdates.setPlayerNames(names);
   }
+  
 
   changePlayerTurn() {
      let player = this.players.shift();
@@ -58,7 +60,7 @@ class Game {
     }).length
     let mutlipliedScore = correctLetterCount * this.players[0].currentSpinValue ;
     let fullScore = this.players[0].roundPoints += mutlipliedScore;
-    domUpdates.updatePlayerRoundScore(fullScore);
+    domUpdates.updatePlayerRoundScore(fullScore, this.players[0].name);
   }
 
   checkPlayerSolution() {

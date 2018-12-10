@@ -14,7 +14,7 @@ describe('Wheel', function() {
   
   beforeEach(function() {
     game = new Game();
-    game.startGame();
+    // game.startGame();
   });
 
   it('should instantiate a new Wheel object when we start a new game', function() {
@@ -26,8 +26,9 @@ describe('Wheel', function() {
   });
 
   it('should have 8 values', function() {
+    game.wheel.generateValues();
     expect(game.wheel.values.length).to.equal(8);
-    ////////why doesnt this test pass? same setup to the puzzle values?/////
   });
+
 
 })

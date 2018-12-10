@@ -73,12 +73,12 @@ const domUpdates = {
     });
   },
 
-  updatePlayerRoundScore(score) {
-    if (game.players[0].name === $(".display-player1-name").text()) {
+  updatePlayerRoundScore(score, player) {
+    if (player === $(".display-player1-name").text()) {
       $(".player1-score").text(`Score: $${score}`);
-    } else if (game.players[0].name === $(".display-player2-name").text()) {
+    } else if (player === $(".display-player2-name").text()) {
       $(".player2-score").text(`Score: $${score}`);
-    } else if (game.players[0].name === $(".display-player3-name").text()) {
+    } else if (player === $(".display-player3-name").text()) {
       $(".player3-score").text(`Score: $${score}`);
     }
   },
