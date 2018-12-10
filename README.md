@@ -3,6 +3,7 @@
 
 ## Installation Steps
 ```git clone https://github.com/ericweissman/wheel_of_fortune.git```
+#####
 ```open indel.html in your browser ```
 
 ## Background/About
@@ -20,3 +21,5 @@
 - More robust/exciting UI/UX 
 - High score list
 
+## Screenshots
+#### Wireframe:
