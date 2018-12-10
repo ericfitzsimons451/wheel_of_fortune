@@ -5,6 +5,18 @@ const domUpdates = {
     $('.display-player3-name').text(`${playerNames[2]}`);
   },
 
+  getPlayerNames() {
+    const player1Name = $('#player-1-input').val();
+    const player2Name = $('#player-2-input').val();
+    const player3Name = $('#player-3-input').val();
+
+
+    const playerNames = [];
+    playerNames.push(player1Name, player2Name, player3Name);
+    return playerNames;
+  },
+
+
   hideStartScreen() {
     $('.start-screen').hide();
   },
@@ -29,7 +41,6 @@ const domUpdates = {
   },
 
   displayCurrentPlayerTurn() {
-
     if (game.players[0].name === $(".display-player1-name").text()) {
       $(".display-player3-name").removeClass("current-player");
       $(".display-player1-name").addClass("current-player");

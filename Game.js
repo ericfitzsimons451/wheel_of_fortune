@@ -13,33 +13,25 @@ class Game {
   }
 
   startGame() {
-    this.createPlayers();
+    let names = domUpdates.getPlayerNames();
+    this.createPlayers(names);
     domUpdates.hideStartScreen();
-    console.log($(".display-player1-name").text())
     domUpdates.displayCurrentPlayerTurn();
     domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer);
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
   }
 
 
-  createPlayers() {
-    const player1Name = $('#player-1-input').val();
-    const player2Name = $('#player-2-input').val();
-    const player3Name = $('#player-3-input').val();
-
-    const playerNames = []
-
-    playerNames.push(player1Name, player2Name, player3Name)
-
-    let player1 = new Player(playerNames[0]);
-    let player2 = new Player(playerNames[1]);
-    let player3 = new Player(playerNames[2]);
+  createPlayers(names) {
+    let player1 = new Player(names[0]);
+    let player2 = new Player(names[1]);
+    let player3 = new Player(names[2]);
 
     this.players.push(player1);
     this.players.push(player2);
     this.players.push(player3);
 
-    domUpdates.setPlayerNames(playerNames);
+    domUpdates.setPlayerNames(names);
   }
 
   changePlayerTurn() {

@@ -25,16 +25,6 @@ class Player {
       domUpdates.displaySpinValue(this.currentSpinValue)
     }
   }
-    //wheel gives that value to itself and player class
-    //player.spinvalue is updated with wheel.spinvalue
-    //DOM manipulation...displays current value
-    // 
-    // if value is 'lose turn'. 
-    //.   fire game.updatePlayerTurn
-
-    // if value is 'bankrupt
-    //. update player.roundPoints to zero
-    // fire game.updatePlayerTurn
   
 
   guessLetter() {

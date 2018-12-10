@@ -27,24 +27,17 @@ class Puzzle {
   }
 
   setPuzzleForRound() {
-    if(this.currentPuzzle) {
-
-     if (game.currentRound === 1) {
+    if(this.currentPuzzle === null) {
       this.currentPuzzle = this.puzzleBank[0];
-    } else if (this.currentRound === 2) {
+    } 
+    ////////////////are we ever getting to the below?/////////////
+    else if (game.currentRound === 2) {
       this.currentPuzzle = this.puzzleBank[1];
-    } else if (this.currentRound ===3) {
+    } else if (game.currentRound === 3) {
       this.currentPuzzle = this.puzzleBank[2];
-    } else if (this.currentRound === 4){
+    } else if (game.currentRound === 4){
       this.currentPuzzle = this.puzzleBank[3];
-    } else {
-      this.currentPuzzle = this.puzzleBank[4];
-    }
-
-  } else {
-    this.currentPuzzle = this.puzzleBank[0]
-  }
-
+    } 
 }
 
 }
