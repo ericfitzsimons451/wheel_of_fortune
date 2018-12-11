@@ -62,7 +62,10 @@ const domUpdates = {
   },
 
   showGuessedLetter(letter) {
-    $(".guessed-letter-area").append(`<li class="letter-btn">${letter}</li>`);
+    if (letter !== 'a' && letter !== 'e' && letter !== 'i'&& letter !== 'o' && letter !== 'u' ) {
+      $(".guessed-letter-area").append(`<li class="letter-btn">${letter}</li>`);
+    }
+  
   },
 
   updatePuzzleOnDom(letter) {
