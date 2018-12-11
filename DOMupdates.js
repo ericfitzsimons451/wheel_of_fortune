@@ -18,7 +18,7 @@ const domUpdates = {
 
 
   hideStartScreen() {
-    $('.start-screen').hide();
+    $('.start-screen').fadeOut(1500);
   },
 
   displayPuzzle(puzzle) {
@@ -48,14 +48,24 @@ const domUpdates = {
     }
   },
 
-  displayCurrentPlayerTurn() {
-    if (game.players[0].name === $(".display-player1-name").text()) {
+  displayTotalScore(player, score) {
+    if (player.name === $(".display-player1-name").text()) {
+      $(".player1-total-score").text(`Total Score: $${score}`);
+    } else if (player.name === $(".display-player2-name").text()) {
+      $(".player2-total-score").text(`Total Score: $${score}`);
+    } else if (player.name === $(".display-player3-name").text()) {
+      $(".player3-total-score").text(`Total Score: $${score}`);
+    }
+  },
+
+  displayCurrentPlayerTurn(player) {
+    if (player.name === $(".display-player1-name").text()) {
       $(".display-player3-name").removeClass("current-player");
       $(".display-player1-name").addClass("current-player");
-    } else if (game.players[0].name === $(".display-player2-name").text()) {
+    } else if (player.name === $(".display-player2-name").text()) {
       $(".display-player1-name").removeClass("current-player");
       $(".display-player2-name").addClass("current-player");
-    } else if (game.players[0].name === $(".display-player3-name").text()) {
+    } else if (player.name === $(".display-player3-name").text()) {
       $(".display-player2-name").removeClass("current-player");
       $(".display-player3-name").addClass("current-player");
     }
@@ -91,7 +101,7 @@ const domUpdates = {
     }
   },
 
-  deductVowelCost(player) {
+  deductMoney(player) {
     if (player.name === $(".display-player1-name").text()) {
       $(".player1-score").text(`Score: $${player.roundPoints}`);
     } else if (player.name === $(".display-player2-name").text()) {
@@ -101,8 +111,6 @@ const domUpdates = {
     }
   },
 
-  
-
   enableButtons() {
     $('.guess-letter-btn').prop('disabled', false);
     $('.guess-letter-input').prop('disabled', false);
@@ -110,8 +118,6 @@ const domUpdates = {
     $('.solve-puzzle-btn').prop('disabled', false);
   }
 } 
-
-
 
 
 

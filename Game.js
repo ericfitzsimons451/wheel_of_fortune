@@ -17,7 +17,7 @@ class Game {
     this.createPlayers(names);
     this.wheel.generateValues();
     domUpdates.hideStartScreen();
-    domUpdates.displayCurrentPlayerTurn();
+    domUpdates.displayCurrentPlayerTurn(this.players[0]);
     domUpdates.displayPuzzle(
       this.puzzle.currentPuzzle.correct_answer.toLowerCase()
     );
@@ -37,7 +37,7 @@ class Game {
   changePlayerTurn() {
     let player = this.players.shift();
     this.players.push(player);
-    domUpdates.displayCurrentPlayerTurn();
+    domUpdates.displayCurrentPlayerTurn(this.players[0]);
   }
 
   checkPlayerGuess(letter) {
@@ -55,37 +55,20 @@ class Game {
   checkPlayerSolution(string) {
     if (this.puzzle.currentPuzzle.correct_answer.toLowerCase() === string) {
       domUpdates.displaySolvedPuzzle();
+      this.updateTotalScore();
+      domUpdates.displayTotalScore(this.players[0], this.players[0].totalScore);
+
     } else {
       alert('Sorry, that is incorrect!')
       this.changePlayerTurn();
     }
-    // grab value from player input (maybe happens in DOM updates?)
-    // to lowerCase the puzzle value AND player's input value
-    // validate answer somehow.  guess === answerguess
-    // if  player's guess is TRUE
-    //.     update player.roundScore
-    //      increment that value in player.bank
-    //      fire game.changeRounds
-    //      fire game.updatePlayerTurn?????
-    //. if player's guess is false
-    //      fire game.updatePlayerTurn
   }
 
-  // checkForVowel(letter) {
-  //   if(game.players[0].roundPoints >= 100) {
-  //    // subtract player points
-  //   domUpdates.showGuessedLetter(letter);
-  //   if (this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
-  //     domUpdates.updatePuzzleOnDom(letter);
-  //     this.updatePlayerScore(letter)
-  //   } else {
-  //     this.changePlayerTurn();
-  //   }
-  // } else {
-  //   //subtract player points
-  //   this.changePlayerTurn()
-  // }
-  // }
+  updateTotalScore() {
+    this.players[0].totalScore += this.players[0].roundPoints;
+    this.players[1].totalScore += 0;
+    this.players[2].totalScore += 0;
+  }
 
   updatePlayerScore(letter) {
     let puzzle = this.puzzle.currentPuzzle.correct_answer.split("");
@@ -97,11 +80,6 @@ class Game {
     domUpdates.updatePlayerRoundScore(fullScore, this.players[0].name);
   }
 
-  updatePlayerTurn() {
-    //MAYBE MOVE TO PLAYER CLASS
-    //    update player.turn to false
-    //    update nextPlayer.turn to true
-  }
 
   changeRounds() {
     //instantiate new wheel

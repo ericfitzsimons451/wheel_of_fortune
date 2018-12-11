@@ -3,7 +3,7 @@ class Player {
     this.name = name;
     // this.turn = false;
     this.roundPoints = 0;
-    this.bank = 0;
+    this.totalScore = 0;
     this.currentSpinValue = null;
     this.getsToGoToFinal = false  // is this necessary?
   }
@@ -18,6 +18,7 @@ class Player {
       game.changePlayerTurn();
     } else if (this.currentSpinValue === "BANKRUPT") {
       this.roundPoints = 0;
+      domUpdates.deductMoney(this);
       game.changePlayerTurn();
     } else {
       domUpdates.displaySpinValue(this.currentSpinValue)
@@ -42,10 +43,10 @@ class Player {
     if (this.roundPoints >= 100) {
      this.roundPoints -= 100
     domUpdates.showGuessedLetter(letter);
-      domUpdates.deductVowelCost(this)
+      domUpdates.deductMoney(this)
     if (game.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
       domUpdates.updatePuzzleOnDom(letter);
-      domUpdates.deductVowelCost(this);
+      domUpdates.deductMoney(this);
       // game.updatePlayerScore(letter)
     } else {
       this.roundPoints -= 100
