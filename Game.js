@@ -20,7 +20,7 @@ class Game {
     domUpdates.displayCurrentPlayerTurn();
     domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer.toLowerCase());
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
-    console.log(game.puzzle.currentPuzzle.correct_answer)
+    // console.log(game.puzzle.currentPuzzle.correct_answer)
   }
 
 
@@ -41,7 +41,6 @@ class Game {
      let player = this.players.shift();
      this.players.push(player);
      domUpdates.displayCurrentPlayerTurn();
-     domUpdates.enable
   }
 
   checkPlayerGuess(letter) {
@@ -78,6 +77,13 @@ class Game {
     //      fire game.updatePlayerTurn
   }
 
+
+
+  updatePlayerTurn() {
+    //MAYBE MOVE TO PLAYER CLASS
+    //    update player.turn to false
+    //    update nextPlayer.turn to true
+  }
 
   changeRounds() {
     //instantiate new wheel
@@ -128,6 +134,11 @@ class Game {
     //      Offer an exit game option
   }
   
+
+  exitGame() {
+    //refresh page?
+    
+  }
 }
 if (typeof module !== 'undefined') {
   module.exports = Game;

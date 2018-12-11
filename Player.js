@@ -18,7 +18,6 @@ class Player {
       game.changePlayerTurn();
     } else if (this.currentSpinValue === "BANKRUPT") {
       this.roundPoints = 0;
-      domUpdates.bankruptPlayer(game.players[0].name);
       game.changePlayerTurn();
     } else {
       domUpdates.displaySpinValue(this.currentSpinValue)
