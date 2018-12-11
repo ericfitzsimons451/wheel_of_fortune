@@ -22,7 +22,7 @@ class Game {
       this.puzzle.currentPuzzle.correct_answer.toLowerCase()
     );
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
-    console.log(game.puzzle.currentPuzzle.correct_answer);
+    // console.log(game.puzzle.currentPuzzle.correct_answer);
   }
 
   createPlayers(names) {

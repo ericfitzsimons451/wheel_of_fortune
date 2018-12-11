@@ -8,12 +8,12 @@ global.data = require('../Data.js')
 global.Player = require('../Player.js')
 global.Puzzle = require('../Puzzle.js')
 global.Wheel = require('../Wheel.js')
-
+ 
 chai.spy.on(global.domUpdates, ['setPlayerNames', 'getPlayerNames'], () => { //for testing functions that actually return something
   return ['John', 'Joe', 'Bill']
 })
 
-chai.spy.on(global.domUpdates, ['hideStartScreen', 'displayCurrentPlayerTurn', 'displayPuzzle', 'displayCategory', 'createPlayers'], () => true) //did this function happen (doesnt return anything)
+chai.spy.on(global.domUpdates, ['hideStartScreen', 'displayCurrentPlayerTurn', 'displayPuzzle', 'displayCategory', 'createPlayers', 'updatePlayerRoundScore'], () => true) //did this function happen (doesnt return anything)
 
 describe('Game', function() {
   var game;
@@ -21,6 +21,23 @@ describe('Game', function() {
   beforeEach(function() {
     game = new Game();
   });
+
+  it('should call hidescreen ', function(){
+    game.startGame();
+    expect(domUpdates.hideStartScreen).to.have.been.called(1);
+  });
+
+  it('should display the first players turn in red', function() {
+    expect(domUpdates.displayCurrentPlayerTurn).to.have.been.called(1);
+  });
+
+  it('should display a puzzle on the DOM', function() {
+    expect(domUpdates.displayPuzzle).to.have.been.called(1);
+  });
+
+  it('should display catergory name of given puzzle', function() {
+    expect(domUpdates.displayCategory).to.have.been.called(1);
+  })
 
   it('should instantiate a new game with three players', function() {
     let getPlayerNames = () => ['A', 'B', 'C']
@@ -36,15 +53,15 @@ describe('Game', function() {
     expect(game.puzzle).to.be.an.instanceOf(Puzzle)
   });
 
-  it('should update a player score', function() {
-    game.startGame();
+  // it('should update a player score', function() {
+  //   game.startGame();
 
-    let score = game.players[0].roundScore;
-    game.updatePlayerScore('a');
-    let score2 = game.players[0].roundScore
-    expect(score).to.not.equal(score2)
+  //   let score = game.players[0].roundScore;
+  //   game.updatePlayerScore('a');
+  //   let score2 = game.players[0].roundScore
+  //   expect(score).to.not.equal(score2)
 
-  })
+  // })
   // it('should be able to change players', function() {
   //   game.startGame();
   //   expect(game.players[0].name).to.equal(game.players[0].name)
