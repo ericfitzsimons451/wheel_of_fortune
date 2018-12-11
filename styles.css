@@ -91,7 +91,7 @@ body {
   font-size: 15px;
   border-radius: 10px;
   margin-right: 20px;
-  background-color: red;
+  background-color: #ce4040;
   border: none;
   padding: 5px 5px;
   color: white;
@@ -105,6 +105,7 @@ body {
     padding: 50px 25px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .board-background {
@@ -135,7 +136,7 @@ body {
 }
 
 .space {
-  background-color: red;
+  background-color: #ce4040;
 }
 
 .curr-category {
@@ -215,7 +216,7 @@ body {
 }
 
 .guess-letter-btn {
-  background-color: red;
+  background-color: #ce4040;
   color: white;
   height: 30px;
   border: 1px solid transparent;
@@ -232,7 +233,7 @@ body {
 }
 
 .solve-puzzle-btn {
-  background-color: red;
+  background-color: #ce4040;
   color: white;
   height: 30px;
   border: 1px solid transparent;
@@ -305,7 +306,25 @@ body {
 }
 
 .current-player {
-  color: red;
+  color: #ce4040;
+  animation: grow infinite 5s;
+}
+
+@keyframes grow {
+  0% {
+    /* font-size: 20px; */
+    color: blue;
+  }
+
+  50% {
+    /* font-size: 50px; */
+    color: purple;
+  }
+
+  100% {
+    /* font-size: 20px; */
+    color: green;
+  }
 }
 
 .player-round-score {
