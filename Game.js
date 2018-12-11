@@ -20,7 +20,7 @@ class Game {
     domUpdates.displayCurrentPlayerTurn();
     domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer.toLowerCase());
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
-    // console.log(game.puzzle.currentPuzzle.correct_answer)
+    console.log(game.puzzle.currentPuzzle.correct_answer)
   }
 
 
@@ -35,7 +35,6 @@ class Game {
 
     domUpdates.setPlayerNames(names);
   }
-  
 
   changePlayerTurn() {
      let player = this.players.shift();
@@ -53,6 +52,22 @@ class Game {
     } 
   }
 
+  // checkForVowel(letter) {
+  //   if(game.players[0].roundPoints >= 100) {
+  //    // subtract player points 
+  //   domUpdates.showGuessedLetter(letter);
+  //   if (this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
+  //     domUpdates.updatePuzzleOnDom(letter);
+  //     this.updatePlayerScore(letter)
+  //   } else {
+  //     this.changePlayerTurn();
+  //   } 
+  // } else {
+  //   //subtract player points
+  //   this.changePlayerTurn()
+  // }
+// }
+  
   updatePlayerScore(letter) {
     let puzzle = this.puzzle.currentPuzzle.correct_answer.split('')
     let correctLetterCount = puzzle.filter((char) => {
