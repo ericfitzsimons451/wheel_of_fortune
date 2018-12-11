@@ -27,7 +27,7 @@ class Puzzle {
   }
 
   setPuzzleForRound() {
-    if(this.currentPuzzle === null) {
+    if (this.currentPuzzle === null) {
       this.currentPuzzle = this.puzzleBank[0];
     } 
     ////////////////are we ever getting to the below?/////////////

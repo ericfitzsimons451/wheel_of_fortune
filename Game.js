@@ -40,15 +40,15 @@ class Game {
     this.currentRound++;
     domUpdates.resetRoundScore();
     domUpdates.updateRoundNumber(this.currentRound);
-    console.log('r1', this.wheel)
     let newWheel = new Wheel();
     this.wheel = newWheel;
     this.wheel.generateValues();
-    console.log("r2", this.wheel);
-    //update scores in Player class
-    //update score on DOM
-    //update wallets in Player class
-    //update wallet on DOM
+    domUpdates.clearPuzzle();
+    this.puzzle.setPuzzleForRound();
+    domUpdates.displayPuzzle(
+      this.puzzle.currentPuzzle.correct_answer.toLowerCase()
+    );
+    domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
   }
 
   changePlayerTurn() {

@@ -99,6 +99,10 @@ const domUpdates = {
       });
   },
 
+  clearPuzzle() {
+    $('.board-background').html('')
+  },
+
   updatePlayerRoundScore(score, player) {
     if (player === $(".display-player1-name").text()) {
       $(".player1-score").text(`Score: $${score}`);
