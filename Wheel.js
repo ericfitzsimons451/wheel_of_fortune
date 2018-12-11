@@ -7,7 +7,7 @@ class Wheel {
   generateValues() {
     const wheelValues = data.wheel.sort(function() {
       return 0.5 - Math.random()
-    }).splice(0, 8);
+    }).slice(0, 8);
     // return wheelValues
     wheelValues.forEach(value => this.values.push(value))
   }

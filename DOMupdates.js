@@ -38,6 +38,10 @@ const domUpdates = {
     $('.change-round-popup').removeClass('hide')
   },
 
+  hideRoundPopUp() {
+    $('.change-round-popup').addClass('hide')
+  },
+
   updateRoundNumber(round) {
     $('.round-counter').text(`Round ${round}`)
   },
