@@ -49,7 +49,7 @@ class Player {
       // game.updatePlayerScore(letter)
     } else {
       this.roundPoints -= 100
-      game.changePlayerTurn();
+      // game.changePlayerTurn();
     } 
   } 
     //  run allowBuyVowel function (which lives somewhere)
