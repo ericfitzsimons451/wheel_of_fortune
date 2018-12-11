@@ -34,13 +34,12 @@ const domUpdates = {
     })
   },
 
-  changeRoundPopup(player, score) {
-    $('.change-round-popup').append(
-      `<h1 class="change-round-popup-title">Congratulations ${player.name}!</h1>
-      <h2 class="change-round-popup-message">Your New Total Score is $${score}</h2>
-      <button class="restart-round-btn">Start Next Round</button>`
-      )
+  displayRoundPopUp() {
     $('.change-round-popup').removeClass('hide')
+  },
+
+  updateRoundNumber(round) {
+    $('.round-counter').text(`Round ${round}`)
   },
 
   displayCategory(category) {
@@ -58,14 +57,14 @@ const domUpdates = {
   },
 
   displayTotalScore(player, score) {
-    if (player.name === $(".display-player1-name").text()) {
-      $(".player1-total-score").text(`Total Score: $${score}`);
-    } else if (player.name === $(".display-player2-name").text()) {
-      $(".player2-total-score").text(`Total Score: $${score}`);
-    } else if (player.name === $(".display-player3-name").text()) {
-      $(".player3-total-score").text(`Total Score: $${score}`);
-    }
-  },
+      if (player.name === $(".display-player1-name").text()) {
+        $(".player1-total-score").text(`Total Score: $${score}`);
+      } else if (player.name === $(".display-player2-name").text()) {
+        $(".player2-total-score").text(`Total Score: $${score}`);
+      } else if (player.name === $(".display-player3-name").text()) {
+        $(".player3-total-score").text(`Total Score: $${score}`);
+      }
+},
 
   displayCurrentPlayerTurn(player) {
     if (player.name === $(".display-player1-name").text()) {

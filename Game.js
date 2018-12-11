@@ -1,7 +1,6 @@
 class Game {
   constructor() {
     this.players = [];
-    this.rounds = 4;
     this.currentRound = 1;
     this.bonusRoundLetters = ["r", "s", "t", "l", "n", "e"];
     this.puzzle = new Puzzle();
@@ -34,6 +33,20 @@ class Game {
     domUpdates.setPlayerNames(names);
   }
 
+  changeRounds() {
+    this.players.forEach((player) => {
+      player.roundPoints = 0;
+    })
+    this.currentRound++;
+    domUpdates.resetRoundScore();
+    domUpdates.updateRoundNumber(this.currentRound);
+    //instantiate new wheel
+    //update scores in Player class
+    //update score on DOM
+    //update wallets in Player class
+    //update wallet on DOM
+  }
+
   changePlayerTurn() {
     let player = this.players.shift();
     this.players.push(player);
@@ -57,7 +70,7 @@ class Game {
       domUpdates.displaySolvedPuzzle();
       this.updateTotalScore();
       domUpdates.displayTotalScore(this.players[0], this.players[0].totalScore);
-      domUpdates.changeRoundPopup(this.players[0], this.players[0].totalScore);
+      domUpdates.displayRoundPopUp();
       
     } else {
       alert('Sorry, that is incorrect!')
@@ -82,15 +95,7 @@ class Game {
   }
 
 
-  changeRounds() {
-    this.players[0].roundPoints = 0
-    domUpdates.resetRoundScore()
-    //instantiate new wheel
-    //update scores in Player class
-    //update score on DOM
-    //update wallets in Player class
-    //update wallet on DOM
-  }
+
 
   declareWinner() {
     // if round# is strictly equal to 4 AND currentPlayer solves puzzle

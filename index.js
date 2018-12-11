@@ -17,7 +17,6 @@ $('.spin-btn').on('click', function(e) {
   e.preventDefault();
   domUpdates.enableButtons();
   game.players[0].spinWheel();
-
 })
 
 $('.guess-letter-submit').on('click', function(e) {
