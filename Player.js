@@ -38,7 +38,20 @@ class Player {
 
   }
 
-  buyVowel() {
+  buyVowel(letter) {
+    if (this.roundPoints >= 100) {
+     this.roundPoints -= 100
+    domUpdates.showGuessedLetter(letter);
+      domUpdates.deductVowelCost(this)
+    if (game.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
+      domUpdates.updatePuzzleOnDom(letter);
+      domUpdates.deductVowelCost(this);
+      // game.updatePlayerScore(letter)
+    } else {
+      this.roundPoints -= 100
+      // game.changePlayerTurn();
+    } 
+  } 
     //  run allowBuyVowel function (which lives somewhere)
     //  
     // if player.roundPoints < 100. 

@@ -30,6 +30,23 @@ $('.guess-letter-submit').on('click', function(e) {
   $(".spin-btn").prop("disabled", false);
 })
 
+$('.vowels').on('click', function(e) {
+  let myVowel = $(e.target).text().toLowerCase();
+  myVowel = myVowel.toLowerCase();
+
+  game.players[0].buyVowel(myVowel)
+
+  
+  // check for $100....
+  // if yes...remove $100
+  //    and check puzzle for letter
+  //.       if yes, put it on DOM
+  //.       if no, life sucks
+  // if no...ALERT.  YOU can't buy a vowel.
+ 
+  
+})
+
 $(".solve-puzzle-btn").on("click", function(e) {
   e.preventDefault();
   // const guess = $(".solve-puzzle-input").val();

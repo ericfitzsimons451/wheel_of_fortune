@@ -86,12 +86,21 @@ const domUpdates = {
     }
   },
 
+  deductVowelCost(player) {
+    if (player.name === $(".display-player1-name").text()) {
+      $(".player1-score").text(`Score: $${player.roundPoints}`);
+    } else if (player.name === $(".display-player2-name").text()) {
+      $(".player2-score").text(`Score: $${player.roundPoints}`);
+    } else if (player.name === $(".display-player3-name").text()) {
+      $(".player3-score").text(`Score: $${player.roundPoints}`);
+    }
+  },
+
   enableButtons() {
     $('.guess-letter-btn').prop('disabled', false);
     $('.guess-letter-input').prop('disabled', false);
     $('.solve-puzzle-input').prop('disabled', false);
     $('.solve-puzzle-btn').prop('disabled', false);
-    
   }
 } 
 
