@@ -34,6 +34,15 @@ const domUpdates = {
     })
   },
 
+  changeRoundPopup(player, score) {
+    $('.change-round-popup').append(
+      `<h1 class="change-round-popup-title">Congratulations ${player.name}!</h1>
+      <h2 class="change-round-popup-message">Your New Total Score is $${score}</h2>
+      <button class="restart-round-btn">Start Next Round</button>`
+      )
+    $('.change-round-popup').removeClass('hide')
+  },
+
   displayCategory(category) {
     $('.curr-category').text(`${category}`);
   },
@@ -99,6 +108,13 @@ const domUpdates = {
     } else if (player === $(".display-player3-name").text()) {
       $(".player3-score").text(`Score: $${score}`);
     }
+  },
+
+  resetRoundScore() {
+      
+      $(".player1-score").text(`Score: $ 0`);
+      $(".player2-score").text('Score: $ 0');
+      $(".player3-score").text('Score: $ 0');
   },
 
   deductMoney(player) {
