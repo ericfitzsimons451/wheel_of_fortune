@@ -9,6 +9,10 @@ $('.start-game-btn').on('click', function(e){
   game.startGame();
 });
 
+$('.exit-btn').on('click', function() {
+  location.reload();
+});
+
 $('.spin-btn').on('click', function(e) {
   e.preventDefault();
   domUpdates.enableButtons();
@@ -47,14 +51,15 @@ $('.vowels').on('click', function(e) {
   
 })
 
+
 $(".solve-puzzle-btn").on("click", function(e) {
   e.preventDefault();
-  // const guess = $(".solve-puzzle-input").val();
-  // const lowerGuess = guess.toLowerCase();
-  // game.checkPlayerSolution(lowerGuess);
-  // $(".solve-puzzle-btn").prop("disabled", true);
-  // $('.solve-puzzle-input').val("");
-  // $(".spin-btn").prop("disabled", false);
+  const guess = $(".solve-puzzle-input").val();
+  const lowerGuess = guess.toLowerCase();
+  game.checkPlayerSolution(lowerGuess);
+  $(".solve-puzzle-btn").prop("disabled", true);
+  $('.solve-puzzle-input').val("");
+  $(".spin-btn").prop("disabled", false);
 });
 
 

@@ -1,13 +1,13 @@
 class Game {
   constructor() {
-    this.players = []; 
+    this.players = [];
     this.rounds = 4;
     this.currentRound = 1;
-    this.bonusRoundLetters = ['r','s','t', 'l', 'n', 'e'];
+    this.bonusRoundLetters = ["r", "s", "t", "l", "n", "e"];
     this.puzzle = new Puzzle();
     this.wheel = new Wheel();
     this.currSpinValue = null;
-    this.finalRoundPlayer = []
+    this.finalRoundPlayer = [];
 
     // could be unnecessary BUT might be a way to handle accessing the final player for bonus round
   }
@@ -15,70 +15,50 @@ class Game {
   startGame() {
     let names = domUpdates.getPlayerNames();
     this.createPlayers(names);
-    this.wheel.generateValues();  
+    this.wheel.generateValues();
     domUpdates.hideStartScreen();
     domUpdates.displayCurrentPlayerTurn();
-    domUpdates.displayPuzzle(this.puzzle.currentPuzzle.correct_answer.toLowerCase());
-    domUpdates.displayCategory(this.puzzle.currentPuzzle.category)
-    console.log(game.puzzle.currentPuzzle.correct_answer)
+    domUpdates.displayPuzzle(
+      this.puzzle.currentPuzzle.correct_answer.toLowerCase()
+    );
+    domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
+    console.log(game.puzzle.currentPuzzle.correct_answer);
   }
 
-
   createPlayers(names) {
-    let player1 = new Player(names[0]);
-    let player2 = new Player(names[1]);
-    let player3 = new Player(names[2]);
-
-    this.players.push(player1);
-    this.players.push(player2);
-    this.players.push(player3);
-
+    this.players = [
+      new Player(names[0]),
+      new Player(names[1]),
+      new Player(names[2])
+    ];
     domUpdates.setPlayerNames(names);
   }
 
   changePlayerTurn() {
-     let player = this.players.shift();
-     this.players.push(player);
-     domUpdates.displayCurrentPlayerTurn();
+    let player = this.players.shift();
+    this.players.push(player);
+    domUpdates.displayCurrentPlayerTurn();
   }
 
   checkPlayerGuess(letter) {
     domUpdates.showGuessedLetter(letter);
-    if (this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
+    if (
+      this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)
+    ) {
       domUpdates.updatePuzzleOnDom(letter);
-      this.updatePlayerScore(letter)
+      this.updatePlayerScore(letter);
     } else {
       this.changePlayerTurn();
-    } 
+    }
   }
 
-  // checkForVowel(letter) {
-  //   if(game.players[0].roundPoints >= 100) {
-  //    // subtract player points 
-  //   domUpdates.showGuessedLetter(letter);
-  //   if (this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
-  //     domUpdates.updatePuzzleOnDom(letter);
-  //     this.updatePlayerScore(letter)
-  //   } else {
-  //     this.changePlayerTurn();
-  //   } 
-  // } else {
-  //   //subtract player points
-  //   this.changePlayerTurn()
-  // }
-// }
-  
-  updatePlayerScore(letter) {
-    let puzzle = this.puzzle.currentPuzzle.correct_answer.split('')
-    let correctLetterCount = puzzle.filter((char) => {
-      return char.toLowerCase() === letter.toLowerCase();
-    }).length
-    let mutlipliedScore = correctLetterCount * this.players[0].currentSpinValue ;
-    let fullScore = this.players[0].roundPoints += mutlipliedScore;
-    domUpdates.updatePlayerRoundScore(fullScore, this.players[0].name);
-  }
-
-  checkPlayerSolution() {
+  checkPlayerSolution(string) {
+    if (this.puzzle.currentPuzzle.correct_answer.toLowerCase() === string) {
+      domUpdates.displaySolvedPuzzle();
+    } else {
+      alert('Sorry, that is incorrect!')
+      this.changePlayerTurn();
+    }
     // grab value from player input (maybe happens in DOM updates?)
     // to lowerCase the puzzle value AND player's input value
     // validate answer somehow.  guess === answerguess
@@ -87,12 +67,35 @@ class Game {
     //      increment that value in player.bank
     //      fire game.changeRounds
     //      fire game.updatePlayerTurn?????
-
     //. if player's guess is false
     //      fire game.updatePlayerTurn
   }
 
+  // checkForVowel(letter) {
+  //   if(game.players[0].roundPoints >= 100) {
+  //    // subtract player points
+  //   domUpdates.showGuessedLetter(letter);
+  //   if (this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
+  //     domUpdates.updatePuzzleOnDom(letter);
+  //     this.updatePlayerScore(letter)
+  //   } else {
+  //     this.changePlayerTurn();
+  //   }
+  // } else {
+  //   //subtract player points
+  //   this.changePlayerTurn()
+  // }
+  // }
 
+  updatePlayerScore(letter) {
+    let puzzle = this.puzzle.currentPuzzle.correct_answer.split("");
+    let correctLetterCount = puzzle.filter(char => {
+      return char.toLowerCase() === letter.toLowerCase();
+    }).length;
+    let mutlipliedScore = correctLetterCount * this.players[0].currentSpinValue;
+    let fullScore = (this.players[0].roundPoints += mutlipliedScore);
+    domUpdates.updatePlayerRoundScore(fullScore, this.players[0].name);
+  }
 
   updatePlayerTurn() {
     //MAYBE MOVE TO PLAYER CLASS
@@ -116,7 +119,6 @@ class Game {
     //.    2.  find highest player.bank and set other players turns to false
     //         fire game.startBonusRound
     //         do something on DOM  (display info about winner AND instructions for final round)
-
   }
 
   startBonusRound() {
@@ -140,19 +142,14 @@ class Game {
     //      increment that value in player.bank
     //      display something that says 'You won!' and final score
     //      Offer an exit game option
-  
-    
-
     //. if player's guess is false
     //      fire game.youAreHorribleAtWheel.  ==== DOM manipulation
     //      display something that says your final score
     //      Offer an exit game option
   }
-  
 
   exitGame() {
     //refresh page?
-    
   }
 }
 if (typeof module !== 'undefined') {

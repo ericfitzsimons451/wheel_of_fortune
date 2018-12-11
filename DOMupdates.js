@@ -65,7 +65,6 @@ const domUpdates = {
     if (letter !== 'a' && letter !== 'e' && letter !== 'i'&& letter !== 'o' && letter !== 'u' ) {
       $(".guessed-letter-area").append(`<li class="letter-btn">${letter}</li>`);
     }
-  
   },
 
   updatePuzzleOnDom(letter) {
@@ -74,6 +73,12 @@ const domUpdates = {
         char.classList.remove('hidden')      
       }
     });
+  },
+
+  displaySolvedPuzzle() {
+    [...$('.board-space')].forEach((char) => {
+        char.classList.remove('hidden')
+      });
   },
 
   updatePlayerRoundScore(score, player) {
@@ -95,6 +100,8 @@ const domUpdates = {
       $(".player3-score").text(`Score: $${player.roundPoints}`);
     }
   },
+
+  
 
   enableButtons() {
     $('.guess-letter-btn').prop('disabled', false);
