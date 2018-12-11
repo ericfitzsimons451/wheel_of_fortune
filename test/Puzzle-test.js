@@ -13,7 +13,6 @@ describe('Puzzle', function () {
 
   beforeEach(function () {
     game = new Game();
-    game.startGame();
   });
 
   it('should instantiate a new puzzle on game start', function() {
@@ -28,11 +27,8 @@ describe('Puzzle', function () {
     expect(game.puzzle.puzzleBank.length).to.equal(5)
   });
 
-  it('should set a new puzzle for every round', function() {
-    expect(game.puzzle.currentPuzzle).to.equal(game.puzzle.puzzleBank[0]);
-    console.log(game.puzzle.puzzleBank[0])
-    game.currentRound = 2;
-    expect(game.puzzle.currentPuzzle).to.equal(game.puzzle.puzzleBank[1]);
-  })  
+  it('should set a new puzzle for first round', function() {
+    expect(game.puzzle.currentPuzzle).to.deep.equal(game.puzzle.puzzleBank[0]);
+  });
 
 });
