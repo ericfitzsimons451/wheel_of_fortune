@@ -40,7 +40,11 @@ class Game {
     this.currentRound++;
     domUpdates.resetRoundScore();
     domUpdates.updateRoundNumber(this.currentRound);
-    //instantiate new wheel
+    console.log('r1', this.wheel)
+    let newWheel = new Wheel();
+    this.wheel = newWheel;
+    this.wheel.generateValues();
+    console.log("r2", this.wheel);
     //update scores in Player class
     //update score on DOM
     //update wallets in Player class
