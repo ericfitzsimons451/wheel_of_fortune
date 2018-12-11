@@ -22,7 +22,7 @@ class Game {
       this.puzzle.currentPuzzle.correct_answer.toLowerCase()
     );
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
-    // console.log(game.puzzle.currentPuzzle.correct_answer);
+    console.log(game.puzzle.currentPuzzle.correct_answer);
   }
 
   createPlayers(names) {
@@ -57,7 +57,7 @@ class Game {
       domUpdates.displaySolvedPuzzle();
       this.updateTotalScore();
       domUpdates.displayTotalScore(this.players[0], this.players[0].totalScore);
-
+      
     } else {
       alert('Sorry, that is incorrect!')
       this.changePlayerTurn();

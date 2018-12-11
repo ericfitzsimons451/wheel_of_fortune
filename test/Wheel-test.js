@@ -14,7 +14,6 @@ describe('Wheel', function() {
   
   beforeEach(function() {
     game = new Game();
-    // game.startGame();
   });
 
   it('should instantiate a new Wheel object when we start a new game', function() {
