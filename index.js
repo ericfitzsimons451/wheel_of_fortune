@@ -62,4 +62,9 @@ $(".solve-puzzle-btn").on("click", function(e) {
   $(".spin-btn").prop("disabled", false);
 });
 
+$('.restart-round-btn').on('click', function(e) {
+  e.preventDefault();
+  game.changeRounds();
+})
+
 

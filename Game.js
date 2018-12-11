@@ -57,6 +57,7 @@ class Game {
       domUpdates.displaySolvedPuzzle();
       this.updateTotalScore();
       domUpdates.displayTotalScore(this.players[0], this.players[0].totalScore);
+      domUpdates.changeRoundPopup(this.players[0], this.players[0].totalScore);
       
     } else {
       alert('Sorry, that is incorrect!')
@@ -82,6 +83,8 @@ class Game {
 
 
   changeRounds() {
+    this.players[0].roundPoints = 0
+    domUpdates.resetRoundScore()
     //instantiate new wheel
     //update scores in Player class
     //update score on DOM
