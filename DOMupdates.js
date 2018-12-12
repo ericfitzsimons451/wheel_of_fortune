@@ -1,5 +1,4 @@
 const domUpdates = {
-  
   ////////////////////Game Start////////////////////
   getPlayerNames() {
     const player1Name = $("#player-1-input").val();

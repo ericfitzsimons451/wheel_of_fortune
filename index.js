@@ -1,4 +1,19 @@
 let game = new Game();
+
+function generateRandomPuzzle() {
+  const puzzleKeys = Object.keys(data.puzzles)
+  let randomPuzzle = puzzleKeys.reduce((arr, puzzleKey) => {
+    arr.push(...data.puzzles[puzzleKey].puzzle_bank)
+    return arr
+  }, []).sort(function () {
+    return 0.5 - Math.random()
+  }).pop()
+
+  return randomPuzzle
+}
+
+
+
 $('.guess-letter-btn').prop('disabled', true);
 $('.guess-letter-input').prop('disabled', true);
 $('.solve-puzzle-input').prop('disabled', true);

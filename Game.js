@@ -3,7 +3,8 @@ class Game {
     this.players = [];
     this.currentRound = 1;
     this.bonusRoundLetters = ["r", "s", "t", "l", "n", "e"];
-    this.puzzle = new Puzzle();
+    // this.puzzle = new Puzzle();
+    this.currentPuzzle = new Puzzle();
     this.wheel = new Wheel();
     this.finalRoundPlayer = [];
     this.bonusRound = false;
@@ -13,7 +14,7 @@ class Game {
     let names = domUpdates.getPlayerNames();
     this.createPlayers(names);
     this.wheel.generateValues();
-    domUpdates.forStartingGame(this.players[0], this.puzzle.currentPuzzle.correct_answer.toLowerCase(), this.puzzle.currentPuzzle.category);
+    domUpdates.forStartingGame(this.players[0], this.currentPuzzle.phrase.correct_answer.toLowerCase(), this.currentPuzzle.phrase.category);
   }
 
   createPlayers(names) {
@@ -26,21 +27,22 @@ class Game {
   }
 
   changeRounds() {
-    if(this.currentRound <= 4) {
+    if (this.currentRound <= 4) {
       this.players.forEach(player => {
         player.roundPoints = 0;
       });
       this.currentRound++;
-      domUpdates.forRoundChange(this.currentRound, this.puzzle.currentPuzzle.correct_answer.toLowerCase(), this.puzzle.currentPuzzle.category);
+      this.currentPuzzle = new Puzzle(generateRandomPuzzle());
+      domUpdates.forRoundChange(this.currentRound, this.currentPuzzle.phrase.correct_answer.toLowerCase(), this.currentPuzzle.phrase.category);
       let newWheel = new Wheel();
       this.wheel = newWheel;
       this.wheel.generateValues();
-      this.puzzle.setPuzzleForRound();
+      this.currentPuzzle = new Puzzle();
     } else {
       this.bonusRound = true;
       this.startBonusRound();
     }
-}
+  }
 
   startBonusRound() {
     this.declareWinner();
@@ -48,7 +50,7 @@ class Game {
     let bonusWheel = new BonusWheel();
     this.wheel = bonusWheel;
     this.wheel.generateValues();
-    this.puzzle.setPuzzleForRound();
+    this.currentPuzzle = new Puzzle();
 
 
     // domUpdates.resetRoundScore();
@@ -66,29 +68,6 @@ class Game {
     domUpdates.displayCurrentPlayerTurn(this.players[0]);
   }
 
-  checkPlayerGuess(letter) {
-    let vowels = 'aeiou';
-    domUpdates.showGuessedLetter(letter);
-    if (!(vowels.includes(letter)) && this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)){
-      domUpdates.updatePuzzleOnDom(letter);
-      this.updatePlayerScore(letter);
-    } else if (vowels.includes(letter)) {
-      domUpdates.fireVowelAlert(letter);
-    } else {
-      this.changePlayerTurn(); 
-    }
-  }
-
-  checkPlayerSolution(string) {
-    if (this.puzzle.currentPuzzle.correct_answer.toLowerCase() === string) {
-      this.updateTotalScore();
-      domUpdates.forCorrectSolution(this.players[0].name, this.players[0].totalScore);
-    } else {
-      alert("Sorry, that is incorrect!");
-      this.changePlayerTurn();
-    }
-  }
-
   updateTotalScore() {
     this.players[0].totalScore += this.players[0].roundPoints;
     this.players[1].totalScore += 0;
@@ -96,7 +75,7 @@ class Game {
   }
 
   updatePlayerScore(letter) {
-    let puzzle = this.puzzle.currentPuzzle.correct_answer.split("");
+    let puzzle = this.currentPuzzle.phrase.correct_answer.split("");
     let correctLetterCount = puzzle.filter(char => {
       return char.toLowerCase() === letter.toLowerCase();
     }).length;

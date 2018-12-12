@@ -316,9 +316,8 @@ body {
   background-color: black;
   width: 250px;
   height: 195px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   color: white;
+  border-radius: 10px;
 }
 
 .player-card-name {

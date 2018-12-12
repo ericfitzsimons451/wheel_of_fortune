@@ -1,39 +1,43 @@
 class Puzzle {
   constructor() {
-    this.currentPuzzle = null;
-    this.puzzleBank = this.createPuzzleBank();
-    this.roundPuzzle = this.setPuzzleForRound();
+    this.phrase = generateRandomPuzzle();
   }
 
-  createPuzzleBank() {
-    const puzzleKeys = Object.keys(data.puzzles)
-    const puzzleBank = puzzleKeys.reduce((arr, puzzleKey) => {
+  generateRandomPuzzle() {
+    this.category = Object.keys(data.puzzles)
+    let randomPuzzle = puzzleKeys.reduce((arr, puzzleKey) => {
       arr.push(...data.puzzles[puzzleKey].puzzle_bank)
       return arr
     }, []).sort(function () {
       return 0.5 - Math.random()
-    }).slice(0, 5)
-
-    const fivePuzzles = puzzleBank.slice(0, 5)
-    return fivePuzzles
+    }).pop()
   }
 
-  setPuzzleForRound() {
-    if (this.currentPuzzle === null) {
-      this.currentPuzzle = this.puzzleBank[0];
-    } 
-    else if (game.currentRound === 2) {
-      this.currentPuzzle = this.puzzleBank[1];
-    } else if (game.currentRound === 3) {
-      this.currentPuzzle = this.puzzleBank[2];
-    } else if (game.currentRound === 4){
-      this.currentPuzzle = this.puzzleBank[3];
-    } else if (game.currentRound === 5) {
-      this.currentPuzzle = this.puzzleBank[4]
+  checkPlayerGuess(letter) {
+    let vowels = 'aeiou';
+    domUpdates.showGuessedLetter(letter);
+    if (!(vowels.includes(letter)) && this.phrase.correct_answer.toLowerCase().includes(letter)) {
+      domUpdates.updatePuzzleOnDom(letter);
+      game.updatePlayerScore(letter);
+    } else if (vowels.includes(letter)) {
+      domUpdates.fireVowelAlert(letter);
+    } else {
+      game.changePlayerTurn();
     }
+  }
+
+  checkPlayerSolution(string) {
+    if (this.phrase.correct_answer.toLowerCase() === string) {
+      game.updateTotalScore();
+      domUpdates.forCorrectSolution(game.players[0].name, game.players[0].totalScore);
+    } else {
+      alert("Sorry, that is incorrect!");
+      game.changePlayerTurn();
+    }
+  }
 }
 
-}
+
 if (typeof module !== 'undefined'){
   module.exports = Puzzle;
 }

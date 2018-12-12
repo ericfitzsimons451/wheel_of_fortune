@@ -22,13 +22,14 @@ class Player {
       domUpdates.displaySpinValue(this.currentSpinValue)
     }
   }
+  
 
   guessLetter(letter) {
-    game.checkPlayerGuess(letter);
+    game.currentPuzzle.checkPlayerGuess(letter);
   }
 
   solvePuzzle(string) {
-    game.checkPlayerSolution(string)
+    game.currentPuzzle.checkPlayerSolution(string)
   }
 
   buyVowel(letter) {
