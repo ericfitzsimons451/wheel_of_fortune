@@ -118,6 +118,16 @@ const domUpdates = {
     });
   },
 
+  resetVowels() {
+    $(".vowels").html(`
+      <li class="vowel-btn vowel-a">A</li>
+      <li class="vowel-btn vowel-e">E</li>
+      <li class="vowel-btn vowel-i">I</li>
+      <li class="vowel-btn vowel-o">O</li>
+      <li class="vowel-btn vowel-u">U</li>
+    `);
+  },
+
   displaySolvedPuzzle() {
     [...$('.board-space')].forEach((char) => {
         char.classList.remove('hidden')
@@ -139,7 +149,6 @@ const domUpdates = {
   },
 
   resetRoundScore() {
-      
       $(".player1-score").text(`Score: $ 0`);
       $(".player2-score").text('Score: $ 0');
       $(".player3-score").text('Score: $ 0');

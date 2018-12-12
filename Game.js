@@ -45,6 +45,7 @@ class Game {
       this.wheel = newWheel;
       this.wheel.generateValues();
       domUpdates.clearPuzzle();
+      domUpdates.
       this.puzzle.setPuzzleForRound();
       domUpdates.displayPuzzle(
         this.puzzle.currentPuzzle.correct_answer.toLowerCase()
