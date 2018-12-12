@@ -82,7 +82,7 @@ class Game {
 
   checkPlayerGuess(letter) {
     domUpdates.showGuessedLetter(letter);
-    if (
+    if (letter !== 'a' && letter !== 'e' && letter !== 'i'&& letter !== 'o' && letter !== 'u' &&
       this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)
     ) {
       domUpdates.updatePuzzleOnDom(letter);

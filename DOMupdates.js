@@ -86,10 +86,21 @@ const domUpdates = {
   showGuessedLetter(letter) {
     if (letter !== 'a' && letter !== 'e' && letter !== 'i'&& letter !== 'o' && letter !== 'u' ) {
       $(".guessed-letter-area").append(`<li class="letter-btn">${letter}</li>`);
+
     }
   },
 
   updatePuzzleOnDom(letter) {
+    if (letter !== 'a' && letter !== 'e' && letter !== 'i'&& letter !== 'o' && letter !== 'u' ) {
+    [...$('.board-space')].forEach((char) => {
+      if (char.innerText === letter) {
+        char.classList.remove('hidden')      
+      }
+    })
+    };
+  },
+
+  putVowelOnDom(letter) {
     [...$('.board-space')].forEach((char) => {
       if (char.innerText === letter) {
         char.classList.remove('hidden')      

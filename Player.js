@@ -41,11 +41,11 @@ class Player {
 
   buyVowel(letter) {
     if (this.roundPoints >= 100) {
-     this.roundPoints -= 100
-    domUpdates.showGuessedLetter(letter);
+      this.roundPoints -= 100
+      domUpdates.showGuessedLetter(letter);
       domUpdates.deductMoney(this)
     if (game.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
-      domUpdates.updatePuzzleOnDom(letter);
+      domUpdates.putVowelOnDom(letter);
       domUpdates.deductMoney(this);
       // game.updatePlayerScore(letter)
     } else {
