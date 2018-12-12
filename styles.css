@@ -271,11 +271,14 @@ body {
 }
 
 .spin-btn {
-  width: 130px;
-  height: 80px;
-  border-radius: 40px;
+  width: 125px;
+  height: 120px;
+  border-radius: 100%;
   font-family: 'Bungee', cursive;
   font-size: 30px;
+  animation: back-glow infinite 3s;
+  animation: rotation infinite 3s;
+  border: none;
 }
 
 .current-spin-value {
@@ -352,6 +355,31 @@ body {
     100% {
     /* font-size: 20px; */
     color: #FEE140;
+  }
+}
+
+@keyframes rotation {
+		from {
+				transform: rotate(0deg);
+		}
+		to {
+				transform: rotate(359deg);
+    }
+    
+    0% {
+    /* font-size: 20px; */
+    background-color:  #FEE140;
+
+  }
+
+  50% {
+    /* font-size: 20px; */
+    background-color: #FA709A;
+  }
+
+    100% {
+    /* font-size: 20px; */
+    background-color: #FEE140;
   }
 }
 
