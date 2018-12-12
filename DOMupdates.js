@@ -164,13 +164,22 @@ const domUpdates = {
     }
   },
 
+  forRoundChange(round, puzzle, category) {
+    domUpdates.resetRoundScore();
+    domUpdates.updateRoundNumber(round);
+    domUpdates.clearPuzzle();
+    domUpdates.resetVowels(); 
+    domUpdates.displayPuzzle(puzzle);
+    domUpdates.displayCategory(category);
+  },
+
   enableButtons() {
     $('.guess-letter-btn').prop('disabled', false);
     $('.guess-letter-input').prop('disabled', false);
     $('.solve-puzzle-input').prop('disabled', false);
     $('.solve-puzzle-btn').prop('disabled', false);
   }
-} 
+}
 
 
 

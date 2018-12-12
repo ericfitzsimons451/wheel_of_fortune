@@ -39,18 +39,11 @@ class Game {
         player.roundPoints = 0;
       });
       this.currentRound++;
-      domUpdates.resetRoundScore();
-      domUpdates.updateRoundNumber(this.currentRound);
+      domUpdates.ForRoundChange(this.currentRound, this.puzzle.currentPuzzle.correct_answer.toLowerCase(), this.puzzle.currentPuzzle.category);
       let newWheel = new Wheel();
       this.wheel = newWheel;
       this.wheel.generateValues();
-      domUpdates.clearPuzzle();
-      domUpdates.
       this.puzzle.setPuzzleForRound();
-      domUpdates.displayPuzzle(
-        this.puzzle.currentPuzzle.correct_answer.toLowerCase()
-      );
-      domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
       console.log(game.puzzle.currentPuzzle.correct_answer);
     } else {
       this.bonusRound = true;
