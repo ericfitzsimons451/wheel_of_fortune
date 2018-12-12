@@ -136,7 +136,8 @@ body {
 }
 
 .space {
-  background-color: #ce4040;
+  background-color: white;
+  border: 10px solid black;
 }
 
 .curr-category {
@@ -152,12 +153,12 @@ body {
 
 /* Word Bank and Buttons Area Styling */
 .bank-buttons-area {
-  background-color: #0E5144;
+  background-color: black;
   display: flex;
   justify-content: space-between;
   height: 225px;
   font-family: 'Bungee', cursive;
-
+  color: white;
 }
 
 .guessed-letters {
@@ -292,7 +293,6 @@ body {
 /* Player Area */
 
 .player-area {
-  background-color: black;
   display: flex;
   justify-content: space-around;
   font-family: 'Open Sans', sans-serif;
@@ -300,16 +300,19 @@ body {
 }
 
 .player-card {
-  background-color: white;
+  background-color: black;
   width: 250px;
   height: 195px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  color: white;
 }
 
 .player-card-name {
-  font-size: 20px;
-  margin-left: 10px;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0px;
+  text-decoration: underline
 }
 
 .current-player {
@@ -353,11 +356,13 @@ body {
 }
 
 .player-round-score {
-  margin-left: 10px;
+  font-size: 20px;
+  margin: 5px 10px
 }
 
 .player-total-score {
-  margin-left: 10px;
+  font-size: 25px;
+  margin: 10px;
 }
 /* styling for Round Change Popup*/
 
