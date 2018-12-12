@@ -61,6 +61,7 @@ $('.new-round-btn').on('click', function(e) {
     game.startBonusRound();
   } else {
     game.changeRounds();
+    domUpdates.hideRoundPopUp();
   }
 })
 
