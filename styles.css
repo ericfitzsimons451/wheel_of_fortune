@@ -199,6 +199,11 @@ body {
 .vowel-btn {
   list-style: none;
   font-size: 25px;
+  animation: glow infinite 5s;
+}
+
+.vowel-btn:hover {
+  font-size: 35px;
 }
 
 /* Guess Letter or Solve Puzzle */
@@ -218,7 +223,7 @@ body {
 .guess-letter-btn {
   background-color: #ce4040;
   color: white;
-  height: 30px;
+  height: 50px;
   border: 1px solid transparent;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -235,7 +240,7 @@ body {
 .solve-puzzle-btn {
   background-color: #ce4040;
   color: white;
-  height: 30px;
+  height: 50px;
   border: 1px solid transparent;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -245,12 +250,14 @@ body {
 }
 
 .player-inputs {
-  height: 30px;
+  height: 50px;
   border: 1px solid transparent;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
-  padding-left: 5px;
+  padding-left: 10px;
   width: 180px;
+  text-transform: uppercase;
+  font-size: 15px;
 }
 
 
@@ -307,7 +314,7 @@ body {
 
 .current-player {
   color: #ce4040;
-  animation: grow infinite 5s;
+  animation: glow infinite 3s;
 }
 
 @keyframes grow {
@@ -324,6 +331,24 @@ body {
   100% {
     /* font-size: 20px; */
     color: green;
+  }
+}
+
+@keyframes glow {
+    0% {
+    /* font-size: 20px; */
+    color:  #FEE140;
+
+  }
+
+  50% {
+    /* font-size: 20px; */
+    color: #FA709A;
+  }
+
+    100% {
+    /* font-size: 20px; */
+    color: #FEE140;
   }
 }
 
