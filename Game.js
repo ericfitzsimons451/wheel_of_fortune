@@ -87,6 +87,8 @@ class Game {
     ) {
       domUpdates.updatePuzzleOnDom(letter);
       this.updatePlayerScore(letter);
+    } else if (letter === 'a' || letter === 'e' || letter === 'i'|| letter === 'o' || letter === 'u') {
+      domUpdates.typedVowelAlert(letter);
     } else {
       this.changePlayerTurn();
     }

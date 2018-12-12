@@ -16,6 +16,12 @@ const domUpdates = {
     return playerNames;
   },
 
+  typedVowelAlert(letter) {
+    if (letter === 'a' || letter === 'e' || letter === 'i'|| letter === 'o' || letter === 'u' ) {
+    alert('You have to choose a consonant!')
+    $('.guess-letter-input').val('');
+    }
+  },
 
   hideStartScreen() {
     $('.start-screen').fadeOut(1500);
