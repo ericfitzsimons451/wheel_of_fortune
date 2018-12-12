@@ -83,7 +83,8 @@ class Game {
     } else if (letter === 'a' || letter === 'e' || letter === 'i'|| letter === 'o' || letter === 'u') {
       domUpdates.typedVowelAlert(letter);
     } else {
-      this.changePlayerTurn();
+      this.changePlayerTurn(); 
+      
     }
   }
 
