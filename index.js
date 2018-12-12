@@ -61,9 +61,13 @@ $(".solve-puzzle-btn").on("click", function(e) {
   $(".spin-btn").prop("disabled", false);
 });
 
-$('.restart-round-btn').on('click', function(e) {
+$('.new-round-btn').on('click', function(e) {
   e.preventDefault();
-  game.changeRounds();
+  if (game.currentRound === 4) {
+    game.startBonusRound();
+  } else {
+    game.changeRounds();
+  }
 })
 
 

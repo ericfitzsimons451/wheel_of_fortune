@@ -7,7 +7,7 @@ class Game {
     this.wheel = new Wheel();
     this.currSpinValue = null;
     this.finalRoundPlayer = [];
-
+    this.bonusRound = false;
     // could be unnecessary BUT might be a way to handle accessing the final player for bonus round
   }
 
@@ -34,15 +34,37 @@ class Game {
   }
 
   changeRounds() {
-    this.players.forEach((player) => {
-      player.roundPoints = 0;
-    })
+    if(this.currentRound <= 4) {
+      this.players.forEach(player => {
+        player.roundPoints = 0;
+      });
+      this.currentRound++;
+      domUpdates.resetRoundScore();
+      domUpdates.updateRoundNumber(this.currentRound);
+      let newWheel = new Wheel();
+      this.wheel = newWheel;
+      this.wheel.generateValues();
+      domUpdates.clearPuzzle();
+      this.puzzle.setPuzzleForRound();
+      domUpdates.displayPuzzle(
+        this.puzzle.currentPuzzle.correct_answer.toLowerCase()
+      );
+      domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
+      console.log(game.puzzle.currentPuzzle.correct_answer);
+    } else {
+      this.bonusRound = true;
+      this.startBonusRound();
+    }
+}
+
+  startBonusRound() {
+    this.declareWinner();
     this.currentRound++;
     domUpdates.resetRoundScore();
     domUpdates.updateRoundNumber(this.currentRound);
-    let newWheel = new Wheel();
-    this.wheel = newWheel;
-    this.wheel.generateValues();
+    let bonusWheel = new BonusWheel();
+    this.wheel = bonusWheel;
+    this.wheel.generateBonusValues();
     domUpdates.clearPuzzle();
     this.puzzle.setPuzzleForRound();
     domUpdates.displayPuzzle(
@@ -50,7 +72,6 @@ class Game {
     );
     domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
     console.log(game.puzzle.currentPuzzle.correct_answer);
-
   }
 
   changePlayerTurn() {
@@ -77,9 +98,8 @@ class Game {
       this.updateTotalScore();
       domUpdates.displayTotalScore(this.players[0], this.players[0].totalScore);
       domUpdates.displayRoundPopUp();
-      
     } else {
-      alert('Sorry, that is incorrect!')
+      alert("Sorry, that is incorrect!");
       this.changePlayerTurn();
     }
   }
@@ -100,10 +120,12 @@ class Game {
     domUpdates.updatePlayerRoundScore(fullScore, this.players[0].name);
   }
 
-
-
-
   declareWinner() {
+    let winner = game.players.sort((a, b) => {
+      return b.totalScore - a.totalScore
+    }).shift()
+    this.finalRoundPlayer.push(winner)
+    console.log(this.finalRoundPlayer)
     // if round# is strictly equal to 4 AND currentPlayer solves puzzle
     //    1.  find which player.bank is the highest
     //        push them into game.finalPlayer array
@@ -111,13 +133,6 @@ class Game {
     //.    2.  find highest player.bank and set other players turns to false
     //         fire game.startBonusRound
     //         do something on DOM  (display info about winner AND instructions for final round)
-  }
-
-  startBonusRound() {
-    //  instantiate new BONUS WHeel class object
-    //  show bonus round screen on DOM
-    //  Display some instructions for player
-    //  display pre-selected letter on puzzle. (DOM)
   }
 
   bonusRoundLetterSubmission() {
@@ -140,9 +155,6 @@ class Game {
     //      Offer an exit game option
   }
 
-  exitGame() {
-    //refresh page?
-  }
 }
 if (typeof module !== 'undefined') {
   module.exports = Game;

@@ -37,7 +37,9 @@ class Puzzle {
       this.currentPuzzle = this.puzzleBank[2];
     } else if (game.currentRound === 4){
       this.currentPuzzle = this.puzzleBank[3];
-    } 
+    } else if (game.currentRound === 5) {
+      this.currentPuzzle = this.puzzleBank[4]
+    }
 }
 
 }
