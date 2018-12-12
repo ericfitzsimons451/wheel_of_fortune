@@ -136,7 +136,8 @@ body {
 }
 
 .space {
-  background-color: #ce4040;
+  background-color: white;
+  border: 10px solid black;
 }
 
 .curr-category {
@@ -152,12 +153,12 @@ body {
 
 /* Word Bank and Buttons Area Styling */
 .bank-buttons-area {
-  background-color: #0E5144;
+  background-color: black;
   display: flex;
   justify-content: space-between;
   height: 225px;
   font-family: 'Bungee', cursive;
-
+  color: white;
 }
 
 .guessed-letters {
@@ -199,6 +200,11 @@ body {
 .vowel-btn {
   list-style: none;
   font-size: 25px;
+  animation: glow infinite 5s;
+}
+
+.vowel-btn:hover {
+  font-size: 35px;
 }
 
 /* Guess Letter or Solve Puzzle */
@@ -218,7 +224,7 @@ body {
 .guess-letter-btn {
   background-color: #ce4040;
   color: white;
-  height: 30px;
+  height: 50px;
   border: 1px solid transparent;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -235,7 +241,7 @@ body {
 .solve-puzzle-btn {
   background-color: #ce4040;
   color: white;
-  height: 30px;
+  height: 50px;
   border: 1px solid transparent;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -245,12 +251,14 @@ body {
 }
 
 .player-inputs {
-  height: 30px;
+  height: 50px;
   border: 1px solid transparent;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
-  padding-left: 5px;
+  padding-left: 10px;
   width: 180px;
+  text-transform: uppercase;
+  font-size: 15px;
 }
 
 
@@ -263,11 +271,14 @@ body {
 }
 
 .spin-btn {
-  width: 130px;
-  height: 80px;
-  border-radius: 40px;
+  width: 125px;
+  height: 120px;
+  border-radius: 100%;
   font-family: 'Bungee', cursive;
   font-size: 30px;
+  animation: back-glow infinite 3s;
+  animation: rotation infinite 3s;
+  border: none;
 }
 
 .current-spin-value {
@@ -285,7 +296,6 @@ body {
 /* Player Area */
 
 .player-area {
-  background-color: black;
   display: flex;
   justify-content: space-around;
   font-family: 'Open Sans', sans-serif;
@@ -293,21 +303,24 @@ body {
 }
 
 .player-card {
-  background-color: white;
+  background-color: black;
   width: 250px;
   height: 195px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  color: white;
 }
 
 .player-card-name {
-  font-size: 20px;
-  margin-left: 10px;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0px;
+  text-decoration: underline
 }
 
 .current-player {
   color: #ce4040;
-  animation: grow infinite 5s;
+  animation: glow infinite 3s;
 }
 
 @keyframes grow {
@@ -327,12 +340,57 @@ body {
   }
 }
 
+@keyframes glow {
+    0% {
+    /* font-size: 20px; */
+    color:  #FEE140;
+
+  }
+
+  50% {
+    /* font-size: 20px; */
+    color: #FA709A;
+  }
+
+    100% {
+    /* font-size: 20px; */
+    color: #FEE140;
+  }
+}
+
+@keyframes rotation {
+		from {
+				transform: rotate(0deg);
+		}
+		to {
+				transform: rotate(359deg);
+    }
+    
+    0% {
+    /* font-size: 20px; */
+    background-color:  #FEE140;
+
+  }
+
+  50% {
+    /* font-size: 20px; */
+    background-color: #FA709A;
+  }
+
+    100% {
+    /* font-size: 20px; */
+    background-color: #FEE140;
+  }
+}
+
 .player-round-score {
-  margin-left: 10px;
+  font-size: 20px;
+  margin: 5px 10px
 }
 
 .player-total-score {
-  margin-left: 10px;
+  font-size: 25px;
+  margin: 10px;
 }
 /* styling for Round Change Popup*/
 
