@@ -138,6 +138,7 @@ const domUpdates = {
 
   clearPuzzle() {
     $('.board-background').html('')
+    $('.guessed-letter-area').html('')
   },
 
   updatePlayerRoundScore(score, player) {
