@@ -40,6 +40,10 @@ const domUpdates = {
     })
   },
 
+  playerNamesAlert() {
+    alert('Every player should have a name!')
+  },
+
   displayRoundPopUp() {
     $('.change-round-popup').removeClass('hide')
   },

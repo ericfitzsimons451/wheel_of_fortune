@@ -6,7 +6,11 @@ $('.solve-puzzle-btn').prop('disabled', true);
 
 $('.start-game-btn').on('click', function(e){
   e.preventDefault();
+  if ($('#player-1-input').val() === '' || $('#player-2-input').val() === '' || $('#player-3-input').val() === '') {
+    domUpdates.playerNamesAlert();
+  } else {
   game.startGame();
+  }
 });
 
 $('.exit-btn').on('click', function() {
