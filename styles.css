@@ -440,6 +440,10 @@ body {
   font-size: 30px;
 }
 
+.winner-info {
+  text-align: center;
+}
+
 .hide {
   display: none;
 }

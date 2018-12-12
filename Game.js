@@ -14,13 +14,7 @@ class Game {
     let names = domUpdates.getPlayerNames();
     this.createPlayers(names);
     this.wheel.generateValues();
-    domUpdates.hideStartScreen();
-    domUpdates.displayCurrentPlayerTurn(this.players[0]);
-    domUpdates.displayPuzzle(
-      this.puzzle.currentPuzzle.correct_answer.toLowerCase()
-    );
-    domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
-    // console.log(game.puzzle.currentPuzzle.correct_answer);
+    domUpdates.forStartingGame(this.players[0], this.puzzle.currentPuzzle.correct_answer.toLowerCase(), this.puzzle.currentPuzzle.category);
   }
 
   createPlayers(names) {
@@ -43,7 +37,6 @@ class Game {
       this.wheel = newWheel;
       this.wheel.generateValues();
       this.puzzle.setPuzzleForRound();
-      console.log(game.puzzle.currentPuzzle.correct_answer);
     } else {
       this.bonusRound = true;
       this.startBonusRound();
@@ -53,18 +46,19 @@ class Game {
   startBonusRound() {
     this.declareWinner();
     this.currentRound++;
-    domUpdates.resetRoundScore();
-    domUpdates.updateRoundNumber(this.currentRound);
     let bonusWheel = new BonusWheel();
     this.wheel = bonusWheel;
-    this.wheel.generateBonusValues();
-    domUpdates.clearPuzzle();
+    this.wheel.generateValues();
     this.puzzle.setPuzzleForRound();
-    domUpdates.displayPuzzle(
-      this.puzzle.currentPuzzle.correct_answer.toLowerCase()
-    );
-    domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
-    console.log(game.puzzle.currentPuzzle.correct_answer);
+
+
+    // domUpdates.resetRoundScore();
+    // domUpdates.updateRoundNumber(this.currentRound);
+    // domUpdates.clearPuzzle();
+    // domUpdates.displayPuzzle(
+    //   this.puzzle.currentPuzzle.correct_answer.toLowerCase()
+    // );
+    // domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
   }
 
   changePlayerTurn() {
@@ -74,26 +68,22 @@ class Game {
   }
 
   checkPlayerGuess(letter) {
+    let vowels = 'aeiou';
     domUpdates.showGuessedLetter(letter);
-    if (letter !== 'a' && letter !== 'e' && letter !== 'i'&& letter !== 'o' && letter !== 'u' &&
-      this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)
-    ) {
+    if (!(vowels.includes(letter)) && this.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)){
       domUpdates.updatePuzzleOnDom(letter);
       this.updatePlayerScore(letter);
-    } else if (letter === 'a' || letter === 'e' || letter === 'i'|| letter === 'o' || letter === 'u') {
+    } else if (vowels.includes(letter)) {
       domUpdates.typedVowelAlert(letter);
     } else {
       this.changePlayerTurn(); 
-      
     }
   }
 
   checkPlayerSolution(string) {
     if (this.puzzle.currentPuzzle.correct_answer.toLowerCase() === string) {
-      domUpdates.displaySolvedPuzzle();
       this.updateTotalScore();
-      domUpdates.displayTotalScore(this.players[0], this.players[0].totalScore);
-      domUpdates.displayRoundPopUp(this.players[0].name, this.players[0].totalScore);
+      domUpdates.forCorrectSolution(this.players[0].name, this.players[0].totalScore);
     } else {
       alert("Sorry, that is incorrect!");
       this.changePlayerTurn();
@@ -121,7 +111,6 @@ class Game {
       return b.totalScore - a.totalScore
     }).shift()
     this.finalRoundPlayer.push(winner)
-    console.log(this.finalRoundPlayer)
   }
 
   bonusRoundLetterSubmission() {

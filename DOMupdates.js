@@ -24,7 +24,7 @@ const domUpdates = {
   },
 
   hideStartScreen() {
-    $('.start-screen').fadeOut(1500);
+    $('.start-screen').fadeOut(1100);
   },
 
   displayPuzzle(puzzle) {
@@ -177,6 +177,19 @@ const domUpdates = {
     domUpdates.resetVowels(); 
     domUpdates.displayPuzzle(puzzle);
     domUpdates.displayCategory(category);
+  },
+
+  forStartingGame(player, puzzle, category) {
+    domUpdates.hideStartScreen();
+    domUpdates.displayCurrentPlayerTurn(player);
+    domUpdates.displayPuzzle(puzzle);
+    domUpdates.displayCategory(category)
+  },
+
+  forCorrectSolution(player, score) {
+    domUpdates.displaySolvedPuzzle();
+    domUpdates.displayTotalScore(player, score);
+    domUpdates.displayRoundPopUp(player, score)
   },
 
   enableButtons() {
