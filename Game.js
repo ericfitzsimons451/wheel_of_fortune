@@ -5,7 +5,6 @@ class Game {
     this.bonusRoundLetters = ["r", "s", "t", "l", "n", "e"];
     this.puzzle = new Puzzle();
     this.wheel = new Wheel();
-    this.currSpinValue = null;
     this.finalRoundPlayer = [];
     this.bonusRound = false;
   }
@@ -74,7 +73,7 @@ class Game {
       domUpdates.updatePuzzleOnDom(letter);
       this.updatePlayerScore(letter);
     } else if (vowels.includes(letter)) {
-      domUpdates.typedVowelAlert(letter);
+      domUpdates.fireVowelAlert(letter);
     } else {
       this.changePlayerTurn(); 
     }

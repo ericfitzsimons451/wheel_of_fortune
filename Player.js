@@ -8,8 +8,6 @@ class Player {
     this.getsToGoToFinal = false  // is this necessary?
   }
 
-
-
   spinWheel() {
     this.currentSpinValue = game.wheel.spin();
     domUpdates.displaySpinValue(this.currentSpinValue)
@@ -18,52 +16,35 @@ class Player {
       game.changePlayerTurn();
     } else if (this.currentSpinValue === "BANKRUPT") {
       this.roundPoints = 0;
-      domUpdates.deductMoney(this);
+      domUpdates.deductVowelCost(this);
       game.changePlayerTurn();
     } else {
       domUpdates.displaySpinValue(this.currentSpinValue)
     }
   }
-  
 
-  guessLetter() {
-    //this function is triggered by any of the click handlers on letter board
-    // this fires game.checkPlayerGuess
-    //     STOP CODING THIS TOO MANY TIMES
-    
+  guessLetter(letter) {
+    game.checkPlayerGuess(letter);
   }
 
-  solvePuzzle() {
-    // likely just a trigger for other functions?????
-    // probably triggers game.checkPlayerSolution
-
+  solvePuzzle(string) {
+    game.checkPlayerSolution(string)
   }
 
   buyVowel(letter) {
     if (this.roundPoints >= 100) {
       this.roundPoints -= 100
       domUpdates.showGuessedLetter(letter);
-      domUpdates.deductMoney(this)
+      domUpdates.deductVowelCost(this)
     if (game.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
       domUpdates.putVowelOnDom(letter);
-      domUpdates.deductMoney(this);
-      // game.updatePlayerScore(letter)
+      domUpdates.deductVowelCost(this);
     } else {
       this.roundPoints -= 100;
       domUpdates.putVowelOnDom(letter);
       game.changePlayerTurn();
-
-      // game.changePlayerTurn();
     } 
-  } 
-    //  run allowBuyVowel function (which lives somewhere)
-    //  
-    // if player.roundPoints < 100. 
-    //.     display message that directs to another option/instructions
-    //      OR. disable the click handler
-    // if player.roundPoints >= 100
-    //.     subtract 100 points from this.roundPoints
-    //      fire game.checkPlayerGuess
+    } 
   }
 
   guessBonusPuzzle() {
