@@ -44,8 +44,11 @@ const domUpdates = {
     alert('Every player should have a name!')
   },
 
-  displayRoundPopUp() {
-    $('.change-round-popup').removeClass('hide')
+  displayRoundPopUp(player, score) {
+    $('.change-round-popup').removeClass('hide');
+    $('.winner-info').html(`<h1 class="change-round-popup-title">Congratulations ${player}!</h1>
+      <h2 class="change-round-popup-message">Your New Total Score is $${score}</h2>`
+    );
   },
 
   hideRoundPopUp() {

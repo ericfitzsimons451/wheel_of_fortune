@@ -55,8 +55,8 @@ $(".solve-puzzle-btn").on("click", function(e) {
   $(".spin-btn").prop("disabled", false);
 });
 
-$('.new-round-btn').on('click', function(e) {
-  e.preventDefault();
+$('.new-round-btn').on('click', function(event) {
+  event.preventDefault();
   if (game.currentRound === 4) {
     game.startBonusRound();
   } else {

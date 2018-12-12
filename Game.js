@@ -93,7 +93,7 @@ class Game {
       domUpdates.displaySolvedPuzzle();
       this.updateTotalScore();
       domUpdates.displayTotalScore(this.players[0], this.players[0].totalScore);
-      domUpdates.displayRoundPopUp();
+      domUpdates.displayRoundPopUp(this.players[0].name, this.players[0].totalScore);
     } else {
       alert("Sorry, that is incorrect!");
       this.changePlayerTurn();
