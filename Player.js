@@ -49,7 +49,10 @@ class Player {
       domUpdates.deductMoney(this);
       // game.updatePlayerScore(letter)
     } else {
-      this.roundPoints -= 100
+      this.roundPoints -= 100;
+      domUpdates.putVowelOnDom(letter);
+      game.changePlayerTurn();
+
       // game.changePlayerTurn();
     } 
   } 

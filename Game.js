@@ -8,7 +8,6 @@ class Game {
     this.currSpinValue = null;
     this.finalRoundPlayer = [];
     this.bonusRound = false;
-    // could be unnecessary BUT might be a way to handle accessing the final player for bonus round
   }
 
   startGame() {
@@ -39,7 +38,7 @@ class Game {
         player.roundPoints = 0;
       });
       this.currentRound++;
-      domUpdates.ForRoundChange(this.currentRound, this.puzzle.currentPuzzle.correct_answer.toLowerCase(), this.puzzle.currentPuzzle.category);
+      domUpdates.forRoundChange(this.currentRound, this.puzzle.currentPuzzle.correct_answer.toLowerCase(), this.puzzle.currentPuzzle.category);
       let newWheel = new Wheel();
       this.wheel = newWheel;
       this.wheel.generateValues();
@@ -122,13 +121,6 @@ class Game {
     }).shift()
     this.finalRoundPlayer.push(winner)
     console.log(this.finalRoundPlayer)
-    // if round# is strictly equal to 4 AND currentPlayer solves puzzle
-    //    1.  find which player.bank is the highest
-    //        push them into game.finalPlayer array
-    //  OR
-    //.    2.  find highest player.bank and set other players turns to false
-    //         fire game.startBonusRound
-    //         do something on DOM  (display info about winner AND instructions for final round)
   }
 
   bonusRoundLetterSubmission() {

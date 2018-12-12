@@ -114,6 +114,8 @@ const domUpdates = {
       if (char.innerText === letter) {
         char.classList.remove('hidden');
       $(`.vowel-${letter.toLowerCase()}`).addClass('hide')
+      } else {
+        $(`.vowel-${letter.toLowerCase()}`).addClass('hide')
       }
     });
   },
