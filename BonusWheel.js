@@ -11,7 +11,7 @@ class BonusWheel extends Wheel {
       return 0.5 - Math.random()
     }).slice(0, 8)
     bonusValues.forEach((value) => {
-      this.values.push(value * 23)
+      this.values.push(value * 2)
     })
   }
 }

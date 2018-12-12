@@ -31,4 +31,9 @@ describe('Puzzle', function () {
     expect(game.puzzle.currentPuzzle).to.deep.equal(game.puzzle.puzzleBank[0]);
   });
 
+  it('should set a new puzzle for second round', function() {
+    game.currentRound === 2;
+    expect(game.puzzle.currentPuzzle).to.deep.equal(game.puzzle.puzzleBank[1]);
+  })
+
 });

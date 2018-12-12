@@ -10,28 +10,31 @@ global.Puzzle = require('../Puzzle.js')
 
 
 describe('Player', function() {
-  var player;
+  var game;
+  var names = ['a', 'b', 'c']
   
   beforeEach(function() {
-    player = new Player('name');
+    game = new Game();
   });
 
-  // it('should instantiate a new player with a name', function() {
-  //   expect(player.name).to.equal('name')
-  // });
+  it('should instantiate a new player with a name', function() {
+    game.startGame();
+    game.createPlayers(names);
+    expect(player.name).to.equal('name')
+  });
 
-  // it('should create new players with empty banks and round points', function() {
-  //   expect(player.roundPoints).to.equal(0)
-  //   expect(player.bank).to.equal(0)
-  // })
+  it('should create new players with empty banks and round points', function() {
+    expect(player.roundPoints).to.equal(0)
+    expect(player.bank).to.equal(0)
+  })
 
   // it('should create new players with 6 keys', function() {
   //   expect(player).to.have.all.keys('name', 'turn', 'roundPoints', 'bank', 'currentSpinValue', 'getsToGoToFinal')
   // })
 
-  // it('should be able to spin the wheel', function() {
-  //   player.spinWheel()
-  // })
+  it('should be able to spin the wheel', function() {
+    player.spinWheel()
+  })
 
   // it('should update a players score when a letter is guessed correctly', function() {
   //   game.updatePlayerScore();
