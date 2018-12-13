@@ -58,6 +58,12 @@ describe('Player', function() {
     expect(game.players[0].name).to.equal("Bob");
   });
 
+
+  //potentiall create a describe block for every method with separate its
+//make these separate its 
+  //it should change playere turn when spin value === l at 
+  //it should change player turn adn increment score down if spin is bankrupt and call deductVowelCost
+
   it('should be able to spin that wheel', function() {
     game.players[0].spinWheel();
     expect(domUpdates.displaySpinValue).to.have.been.called(1);

@@ -8,7 +8,8 @@ class Game {
     this.bonusRound = false;
   }
 
-  startGame() {
+  startGame(names) {
+    this.generatePlayers(names)
     this.wheel.generateValues();
     this.players[0].turn = true;
     domUpdates.implementsGameStart(
@@ -16,6 +17,16 @@ class Game {
       this.currentPuzzle.phrase.correct_answer.toLowerCase(), 
       this.currentPuzzle.phrase.category);
   }
+
+  generatePlayers(names) {
+    let player1 = new Player(names[0]);
+    let player2 = new Player(names[1]);
+    let player3 = new Player(names[2]);
+
+    let players = [player1, player2, player3]
+    players.forEach(player => this.players.push(player))
+  }
+
 
   changeRounds() {
     if (this.currentRound <= 3) {

@@ -8,16 +8,17 @@ class Player {
     this.getsToGoToFinal = false  
   }
 
-  spinWheel() {
-    this.currentSpinValue = game.wheel.spin();
-    if (this.currentSpinValue === "LOSE A TURN") {
+    //give the spin method a parameter that we can test for 
+  // spinWheel(spinVAlue) {
+  spinWheel(value) {
+    if (value === "LOSE A TURN") {
       game.changePlayerTurn();
-    } else if (this.currentSpinValue === "BANKRUPT") {
+    } else if (value === "BANKRUPT") {
       this.roundPoints = 0;
       domUpdates.deductVowelCost(this);
       game.changePlayerTurn();
     } else {
-      domUpdates.displaySpinValue(this.currentSpinValue)
+      domUpdates.displaySpinValue(value)
     }
   }
 

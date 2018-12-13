@@ -10,14 +10,9 @@ $('.start-game-btn').on('click', function(event) {
   if ($('#player-1-input').val() === '' || $('#player-2-input').val() === '' || $('#player-3-input').val() === '') {
     domUpdates.fireNameAlert();
   } else {
-    let player1 = new Player($('#player-1-input').val());
-    let player2 = new Player($('#player-2-input').val());
-    let player3 = new Player($('#player-3-input').val());
-    let players = [player1, player2, player3]
-    for (var i = 0; i < 3; i++) {
-      game.players.push(players[i])
-    }
-    game.startGame();
+    console.log('check')
+    let players = [$("#player-1-input").val(), $("#player-2-input").val(), $("#player-3-input").val()];
+    game.startGame(players);
   }
 });
 
@@ -28,7 +23,7 @@ $('.exit-btn').on('click', function() {
 $('.spin-btn').on('click', function(event) {
   event.preventDefault();
   domUpdates.enableButtons();
-  game.players[0].spinWheel();
+  game.players[0].spinWheel(game.wheel.spin());
 })
 
 $('.guess-letter-submit').on('click', function(event) {

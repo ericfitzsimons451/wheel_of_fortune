@@ -28,6 +28,7 @@ global.Wheel = require('../Wheel.js')
     });
 
     it('should be able to change rounds', function() {
+      //expect(game.currentRound).to.equal(1)    DON'T HARDCODE IN VALUES LIKE ON LINE 33
       game.changeRounds();
       game.currentRound = 2;
       game.changeRounds();
@@ -63,6 +64,12 @@ global.Wheel = require('../Wheel.js')
       game.changeRounds();
       expect(game.currentPuzzle).to.not.equal(puzzle1);
     })
+
+    //it should generate 3 players
+    //game.generatePlayers(['eric', 'brittany', 'joe'])
+    //expect.game.players to be length of 3
+    //expect each element to be an isntance of player
+    
 
     it('should change a players turn', function() {
       let players = [
