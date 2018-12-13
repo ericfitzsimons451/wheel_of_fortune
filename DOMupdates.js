@@ -27,16 +27,15 @@ const domUpdates = {
   ////////////////////Gameplay////////////////////
 
   displayCurrentPlayerTurn(player) {
-    if (player.name === $(".display-player1-name").text()) {
-      $(".display-player3-name").removeClass("current-player");
-      $(".display-player1-name").addClass("current-player");
-    } else if (player.name === $(".display-player2-name").text()) {
-      $(".display-player1-name").removeClass("current-player");
-      $(".display-player2-name").addClass("current-player");
-    } else if (player.name === $(".display-player3-name").text()) {
-      $(".display-player2-name").removeClass("current-player");
-      $(".display-player3-name").addClass("current-player");
-    }
+    const currentPlayer = game.players.find((player) => player.turn)
+
+      $('.player-card-name').toArray().forEach((player) => {
+        if (player.innerText === currentPlayer.name) {
+          player.classList.add('current-player')
+        } else {
+          player.classList.remove('current-player')
+        }
+      })
   },
 
   displayPuzzle(puzzle) {
@@ -174,14 +173,16 @@ const domUpdates = {
   },
 
   displayTotalScore(player, score) {
-    if (player.name === $(".display-player1-name").text()) {
+    if (player === $(".display-player1-name").text()) {
+      console.log(score)
       $(".player1-total-score").text(`Total Score: $${score}`);
-    } else if (player.name === $(".display-player2-name").text()) {
+    } else if (player === $(".display-player2-name").text()) {
       $(".player2-total-score").text(`Total Score: $${score}`);
-    } else if (player.name === $(".display-player3-name").text()) {
+    } else if (player === $(".display-player3-name").text()) {
       $(".player3-total-score").text(`Total Score: $${score}`);
     }
   },
+  // },
 
   resetVowels() {
     $(".vowels").html(`
@@ -206,7 +207,8 @@ const domUpdates = {
 
   ////////////////////DOM Packages////////////////////
 
-  forRoundChange(round, puzzle, category) {
+  forRoundChange(round, puzzle, category, player, score) {
+    domUpdates.displayTotalScore(player, score);
     domUpdates.resetRoundScore();
     domUpdates.updateRoundNumber(round);
     domUpdates.clearPuzzle();

@@ -3,7 +3,6 @@ class Game {
     this.players = [];
     this.currentRound = 1;
     this.bonusRoundLetters = ["r", "s", "t", "l", "n", "e"];
-    // this.puzzle = new Puzzle();
     this.currentPuzzle = new Puzzle();
     this.wheel = new Wheel();
     this.finalRoundPlayer = [];
@@ -23,6 +22,8 @@ class Game {
       new Player(names[1]),
       new Player(names[2])
     ];
+    this.players[0].turn = true;
+
     domUpdates.setPlayerNames(names);
   }
 
@@ -32,12 +33,11 @@ class Game {
         player.roundPoints = 0;
       });
       this.currentRound++;
-      this.currentPuzzle = new Puzzle(generateRandomPuzzle());
-      domUpdates.forRoundChange(this.currentRound, this.currentPuzzle.phrase.correct_answer.toLowerCase(), this.currentPuzzle.phrase.category);
+      this.currentPuzzle = new Puzzle();
+      domUpdates.forRoundChange(this.currentRound, this.currentPuzzle.phrase.correct_answer.toLowerCase(), this.currentPuzzle.phrase.category, this.players[0], this.players[0].totalScore);
       let newWheel = new Wheel();
       this.wheel = newWheel;
       this.wheel.generateValues();
-      this.currentPuzzle = new Puzzle();
     } else {
       this.bonusRound = true;
       this.startBonusRound();
@@ -65,6 +65,9 @@ class Game {
   changePlayerTurn() {
     let player = this.players.shift();
     this.players.push(player);
+    this.players[0].turn = true;
+    this.players[1].turn = false;
+    this.players[2].turn = false;
     domUpdates.displayCurrentPlayerTurn(this.players[0]);
   }
 

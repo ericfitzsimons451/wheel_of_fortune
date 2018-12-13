@@ -1,7 +1,7 @@
 class Player {
   constructor(name) {
     this.name = name;
-    // this.turn = false;
+    this.turn = false;
     this.roundPoints = 0;
     this.totalScore = 0;
     this.currentSpinValue = null;
@@ -37,7 +37,7 @@ class Player {
       this.roundPoints -= 100
       domUpdates.showGuessedLetter(letter);
       domUpdates.deductVowelCost(this)
-    if (game.puzzle.currentPuzzle.correct_answer.toLowerCase().includes(letter)) {
+    if (game.currentPuzzle.phrase.correct_answer.toLowerCase().includes(letter)) {
       domUpdates.putVowelOnDom(letter);
       domUpdates.deductVowelCost(this);
     } else {
