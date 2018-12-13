@@ -51,9 +51,6 @@ describe('Player', function() {
     game.players = players;
     game.currentPuzzle = new Puzzle();
 
-    // chai.spy.on(global.domUpdates, [
-    //   'displaySpinValue'], () => true)
-
   });
 
   it('should have a name', function() {

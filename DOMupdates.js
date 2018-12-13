@@ -2,7 +2,6 @@ const domUpdates = {
   ////////////////////Game Start////////////////////
 
   setPlayerNames(playerNames) {
-    console.log(playerNames)
     $(".display-player1-name").text(`${playerNames[0].name}`);
     $(".display-player2-name").text(`${playerNames[1].name}`);
     $(".display-player3-name").text(`${playerNames[2].name}`);
@@ -148,6 +147,10 @@ const domUpdates = {
     $(".solve-puzzle-btn").prop("disabled", false);
   },
 
+  showGuessedLetterAlert(letter) {
+    alert(`${letter} has already been guessed!`)
+  },
+
   ////////////////////Round Change////////////////////
 
   displayRoundPopUp(player, score) {
@@ -178,7 +181,6 @@ const domUpdates = {
       $(".player3-total-score").text(`Total Score: $${score}`);
     }
   },
-  // },
 
   resetVowels() {
     $(".vowels").html(`
@@ -203,7 +205,7 @@ const domUpdates = {
 
   ////////////////////DOM Packages////////////////////
 
-  forRoundChange(round, puzzle, category, player, score) {
+  implementsRoundChange(round, puzzle, category, player, score) {
     domUpdates.displayTotalScore(player, score);
     domUpdates.resetRoundScore();
     domUpdates.updateRoundNumber(round);
@@ -213,7 +215,7 @@ const domUpdates = {
     domUpdates.displayCategory(category);
   },
 
-  forStartingGame(players, player, puzzle, category) {
+  implementsGameStart(players, player, puzzle, category) {
     domUpdates.setPlayerNames(players);
     domUpdates.hideStartScreen();
     domUpdates.displayCurrentPlayerTurn(player);
@@ -221,7 +223,7 @@ const domUpdates = {
     domUpdates.displayCategory(category);
   },
 
-  forCorrectSolution(player, score) {
+  implementsSolutionDisplay(player, score) {
     domUpdates.displaySolvedPuzzle();
     domUpdates.displayTotalScore(player, score);
     domUpdates.displayRoundPopUp(player, score);

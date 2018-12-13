@@ -26,11 +26,4 @@ describe('Puzzle', function () {
     expect(game.currentPuzzle).to.be.an('object')
   })
 
-  // it('should check a players guess', function() {
-  //   let vowels = "aeiou";
-  //   player = new Player();
-  //   puzzle.phrase.correct_answer = "In Like Flynn"
-  //   puzzle.checkPlayerGuess();
-  // })
-
 });

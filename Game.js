@@ -11,12 +11,10 @@ class Game {
   startGame() {
     this.wheel.generateValues();
     this.players[0].turn = true;
-    domUpdates.forStartingGame(
-      this.players,
-      this.players[0],
-      this.currentPuzzle.phrase.correct_answer.toLowerCase(),
-      this.currentPuzzle.phrase.category
-    );
+    domUpdates.implementsGameStart(
+      this.players, this.players[0], 
+      this.currentPuzzle.phrase.correct_answer.toLowerCase(), 
+      this.currentPuzzle.phrase.category);
   }
 
   changeRounds() {
@@ -26,7 +24,7 @@ class Game {
       });
       this.currentRound++;
       this.currentPuzzle = new Puzzle();
-      domUpdates.forRoundChange(
+      domUpdates.implementsRoundChange(
         this.currentRound,
         this.currentPuzzle.phrase.correct_answer.toLowerCase(),
         this.currentPuzzle.phrase.category,
@@ -80,21 +78,13 @@ class Game {
     this.wheel = bonusWheel;
     this.wheel.generateValues();
     this.currentPuzzle = new Puzzle();
-    domUpdates.forRoundChange(
+    domUpdates.implementsRoundChange(
       this.currentRound,
       this.currentPuzzle.phrase.correct_answer.toLowerCase(),
       this.currentPuzzle.phrase.category,
       this.players[0],
       this.players[0].totalScore
     );
-
-    // domUpdates.resetRoundScore();
-    // domUpdates.updateRoundNumber(this.currentRound);
-    // domUpdates.clearPuzzle();
-    // domUpdates.displayPuzzle(
-    //   this.puzzle.currentPuzzle.correct_answer.toLowerCase()
-    // );
-    // domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
   }
 
 }

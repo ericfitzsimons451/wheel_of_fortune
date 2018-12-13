@@ -1,6 +1,7 @@
 class Puzzle {
   constructor() {
     this.phrase = this.generateRandomPuzzle();
+    this.guessedLetters = [];
   }
 
   generateRandomPuzzle() {
@@ -16,35 +17,44 @@ class Puzzle {
 
   checkPlayerGuess(letter) {
     let vowels = 'aeiou';
-    domUpdates.showGuessedLetter(letter);
-    if (!(vowels.includes(letter)) && this.phrase.correct_answer.toLowerCase().includes(letter)) {
-      domUpdates.updatePuzzleOnDom(letter);
-      game.updatePlayerScore(letter);
-    } else if (vowels.includes(letter)) {
-      domUpdates.fireVowelAlert(letter);
+
+    if (!(this.guessedLetters.includes(letter))) {
+      this.guessedLetters.push(letter);
+      domUpdates.showGuessedLetter(letter);
+      if (!(vowels.includes(letter)) &&     this.phrase.correct_answer.toLowerCase().includes(letter)) {
+        domUpdates.updatePuzzleOnDom(letter);
+        game.updatePlayerScore(letter);
+      } else if (vowels.includes(letter)) {
+        domUpdates.fireVowelAlert(letter);
+      } else {
+        game.changePlayerTurn();
+      }
     } else {
+      domUpdates.showGuessedLetterAlert(letter);
       game.changePlayerTurn();
-    }
+      
+
+    // domUpdates.showGuessedLetter(letter);
+    // if (!(vowels.includes(letter)) && this.phrase.correct_answer.toLowerCase().includes(letter)) {
+    //   domUpdates.updatePuzzleOnDom(letter);
+    //   game.updatePlayerScore(letter);
+    // } else if (vowels.includes(letter)) {
+    //   domUpdates.fireVowelAlert(letter);
+    // } else {
+    //   game.changePlayerTurn();
+    // }
   }
+}
 
   checkPlayerSolution(string) {
     if (this.phrase.correct_answer.toLowerCase() === string) {
       game.updateTotalScore();
-      domUpdates.forCorrectSolution(game.players[0].name, game.players[0].totalScore);
+      domUpdates.implementsSolutionDisplay(game.players[0].name, game.players[0].totalScore);
     } else {
       alert("Sorry, that is incorrect!");
       game.changePlayerTurn();
     }
   }
-
-  // checkBonusRoundSolution(string) {
-  //   if (this.phrase.correct_answer.toLowerCase() === string) {
-  //     game.updateTotalScore();
-  //     domUpdates.forCorrectSolution(game.finalRoundPlayer[0].name, finalRoundPlayer[0].totalScore);
-  //   } else {
-  //     domUpdates.displayLostBonusMsg();
-  //   }
-  // }
 }
 
 

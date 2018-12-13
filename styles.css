@@ -1,4 +1,5 @@
 /* Global Styles */
+
 html {
   box-sizing: border-box;
 }
@@ -14,6 +15,7 @@ body {
 
 
 /* Start Screen Styles */
+
 .splash-btn {
   margin-top: 50px;
   font-size: 40px;
@@ -79,6 +81,7 @@ body {
 }
 
 /* Header Styles */
+
 .top {
   display: flex;
   justify-content: space-between;
@@ -108,6 +111,7 @@ body {
 }
 
 /* Gameboard Styles */
+
 .board {
   text-align: center;
   background-color: #FEE140;
@@ -162,6 +166,7 @@ body {
 }
 
 /* Word Bank and Buttons Area Styling */
+
 .bank-buttons-area {
   background-color: black;
   display: flex;
@@ -380,6 +385,7 @@ body {
 }
 
 /* CHANGE ROUNDS */
+
 .change-round-popup {
   width: 100%;
   position: absolute;
