@@ -27,17 +27,17 @@ const domUpdates = {
 
   ////////////////////Gameplay////////////////////
 
-  // displayCurrentPlayerTurn(player) {
-  //   const currentPlayer = game.players.find((player) => player.turn)
+  displayCurrentPlayerTurn(player) {
+    const currentPlayer = game.players.find((player) => player.turn)
 
-  //     $('.player-card-name').toArray().forEach((player) => {
-  //       if (player.innerText === currentPlayer.name) {
-  //         player.classList.add('current-player')
-  //       } else {
-  //         player.classList.remove('current-player')
-  //       }
-  //     })
-  // },
+      $('.player-card-name').toArray().forEach((player) => {
+        if (player.innerText === currentPlayer.name) {
+          player.classList.add('current-player')
+        } else {
+          player.classList.remove('current-player')
+        }
+      })
+  },
 
   displayPuzzle(puzzle) {
     let splitAnswer = Array.from(puzzle);
@@ -222,9 +222,10 @@ const domUpdates = {
     domUpdates.displayCategory(category);
   },
 
-  forStartingGame(player, puzzle, category) {
+  forStartingGame(players, player, puzzle, category) {
+    domUpdates.setPlayerNames(players);
     domUpdates.hideStartScreen();
-    // domUpdates.displayCurrentPlayerTurn(player);
+    domUpdates.displayCurrentPlayerTurn(player);
     domUpdates.displayPuzzle(puzzle);
     domUpdates.displayCategory(category);
   },

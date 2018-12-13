@@ -17,7 +17,6 @@ $('.start-game-btn').on('click', function(e){
     for (var i = 0; i < 3; i++) {
       game.players.push(players[i])
     }
-
     game.startGame();
   }
 });
