@@ -38,8 +38,8 @@ $('.guess-letter-submit').on('click', function(event) {
   $(".spin-btn").prop("disabled", false);
 })
 
-$('.vowels').on('click', function(event) {
-  let myVowel = $(event.target).text().toLowerCase();
+$('.vowels').on('click', function(e) {
+  let myVowel = $(e.target).text().toLowerCase();
   myVowel = myVowel.toLowerCase();
   game.players[0].buyVowel(myVowel)
 

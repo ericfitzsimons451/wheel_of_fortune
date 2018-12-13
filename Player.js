@@ -11,6 +11,7 @@ class Player {
     //give the spin method a parameter that we can test for 
   // spinWheel(spinVAlue) {
   spinWheel(value) {
+    this.currentSpinValue = value
     if (value === "LOSE A TURN") {
       game.changePlayerTurn();
     } else if (value === "BANKRUPT") {

@@ -21,7 +21,8 @@ class Puzzle {
     if (!(this.guessedLetters.includes(letter))) {
       this.guessedLetters.push(letter);
       domUpdates.showGuessedLetter(letter.toUpperCase());
-        if (!(vowels.includes(letter)) &&     this.phrase.correct_answer.toLowerCase().includes(letter)) {
+        if (!(vowels.includes(letter)) && 
+          this.phrase.correct_answer.toLowerCase().includes(letter)) {
           domUpdates.updatePuzzleOnDom(letter);
           game.updatePlayerScore(letter);
         } else if (vowels.includes(letter)) {

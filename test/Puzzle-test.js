@@ -9,9 +9,13 @@ global.data = require("../Data.js");
 global.Player = require("../Player.js");
 
 describe('Puzzle', function () {
+  var game;
+  var names = ['jerry', 'john', 'ricky']
   var puzzle;
 
   beforeEach(function () {
+    game = new Game();
+    game.generatePlayers(names)
     puzzle = new Puzzle();
   });
 
@@ -22,7 +26,6 @@ describe('Puzzle', function () {
   })
 
   it('should be a puzzle object once instantiated', function() {
-    game = new Game();
     expect(game.currentPuzzle).to.be.an('object')
   })
 

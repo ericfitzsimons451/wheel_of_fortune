@@ -11,7 +11,7 @@ class Game {
   startGame(names) {
     this.generatePlayers(names)
     this.wheel.generateValues();
-    this.players[0].turn = true;
+    // this.players[0].turn = true;
     domUpdates.implementsGameStart(
       this.players, this.players[0], 
       this.currentPuzzle.phrase.correct_answer.toLowerCase(), 
@@ -25,6 +25,7 @@ class Game {
 
     let players = [player1, player2, player3]
     players.forEach(player => this.players.push(player))
+    this.players[0].turn = true
   }
 
 
