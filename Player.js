@@ -36,14 +36,14 @@ class Player {
       this.roundPoints -= 100
       domUpdates.showGuessedLetter(letter);
       domUpdates.deductVowelCost(this)
-    if (game.currentPuzzle.phrase.correct_answer.toLowerCase().includes(letter)) {
-      domUpdates.putVowelOnDom(letter);
-      domUpdates.deductVowelCost(this);
-    } else {
-      this.roundPoints -= 100;
-      domUpdates.putVowelOnDom(letter);
-      game.changePlayerTurn();
-    } 
+      if (game.currentPuzzle.phrase.correct_answer.toLowerCase().includes(letter)) {
+        domUpdates.putVowelOnDom(letter);
+        domUpdates.deductVowelCost(this);
+      } else {
+        this.roundPoints -= 100;
+        domUpdates.putVowelOnDom(letter);
+        game.changePlayerTurn();
+      } 
     } 
   }
 

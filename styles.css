@@ -109,13 +109,13 @@ body {
 
 /* Gameboard Styles */
 .board {
-    text-align: center;
-    background-color: #FEE140;
-    background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
-    padding: 50px 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  text-align: center;
+  background-color: #FEE140;
+  background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%);
+  padding: 50px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .board-background {
@@ -178,7 +178,7 @@ body {
 
 .guessed-letters h3 {
   font-size: 25px;
-    margin: 15px 0px;
+  margin: 15px 0px;
 }
 .guessed-letter-area {
   display: flex;
@@ -189,9 +189,9 @@ body {
 }
 
 .letter-btn {
-    list-style: none;
-    font-size: 23px;
-    padding: 0px 10px;
+  list-style: none;
+  font-size: 23px;
+  padding: 0px 10px;
 }
 
 .buy-a-vowel {
@@ -199,8 +199,8 @@ body {
 }
 
 .buy-a-vowel h3 {
-    font-size: 25px;
-    margin: 15px 0px;
+  font-size: 25px;
+  margin: 15px 0px;
 }
 
 .vowels {
@@ -220,15 +220,15 @@ body {
 /* Guess Letter or Solve Puzzle */
 
 .player-guess-solve {
-      display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .guess-letter-area {
-    display: flex;
-    align-items: center;
-    padding-bottom: 25px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 25px;
 }
 
 .guess-letter-btn {
@@ -332,37 +332,17 @@ body {
   animation: glow infinite 3s;
 }
 
-@keyframes grow {
-  0% {
-    /* font-size: 20px; */
-    color: blue;
-  }
-
-  50% {
-    /* font-size: 50px; */
-    color: purple;
-  }
-
-  100% {
-    /* font-size: 20px; */
-    color: green;
-  }
-}
 
 @keyframes glow {
     0% {
-    /* font-size: 20px; */
     color:  #FEE140;
-
   }
 
   50% {
-    /* font-size: 20px; */
     color: #FA709A;
   }
 
     100% {
-    /* font-size: 20px; */
     color: #FEE140;
   }
 }
@@ -376,18 +356,15 @@ body {
     }
     
     0% {
-    /* font-size: 20px; */
     background-color:  #FEE140;
 
   }
 
   50% {
-    /* font-size: 20px; */
     background-color: #FA709A;
   }
 
     100% {
-    /* font-size: 20px; */
     background-color: #FEE140;
   }
 }
@@ -401,8 +378,8 @@ body {
   font-size: 25px;
   margin: 10px;
 }
-/* styling for Round Change Popup*/
 
+/* CHANGE ROUNDS */
 .change-round-popup {
   width: 100%;
   position: absolute;
@@ -446,20 +423,3 @@ body {
 .hide {
   display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.

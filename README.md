@@ -4,10 +4,10 @@
 ## Installation Steps
 ```git clone https://github.com/ericweissman/wheel_of_fortune.git```
 #####
-```open indel.html in your browser ```
+```npm install```
 
 ## Background/About
-#### This project was an opportunity to explore the use of ES6 classes.  As Turing students, previous projects allowed for some exposure to this type of organization, but this was the first chance we had to create a game solely based on this code structure.  Another large portion of this project was to implement a testing suite for not only the class interactions but also any updates made on the DOM.  As well, it offered us a chance to work on away from our partners so as to improve our pull-request and code review skillsets.
+#### This project was an opportunity to explore the use of ES6 classes and object oritented program.  As Turing students, previous projects allowed for some exposure to this type of organization, but this was the first chance we had to create a game solely based on this code structure.  Another large portion of this project was to implement a testing suite for not only the class interactions but also any updates made on the DOM. 
 
 ## Primary Technologies Used
 - jQuery

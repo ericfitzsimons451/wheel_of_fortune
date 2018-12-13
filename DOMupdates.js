@@ -1,14 +1,5 @@
 const domUpdates = {
   ////////////////////Game Start////////////////////
-  // getPlayerNames() {
-  //   const player1Name = $("#player-1-input").val();
-  //   const player2Name = $("#player-2-input").val();
-  //   const player3Name = $("#player-3-input").val();
-
-  //   const playerNames = [];
-  //   playerNames.push(player1Name, player2Name, player3Name);
-  //   return playerNames;
-  // },
 
   setPlayerNames(playerNames) {
     console.log(playerNames)
@@ -27,16 +18,16 @@ const domUpdates = {
 
   ////////////////////Gameplay////////////////////
 
-  displayCurrentPlayerTurn(player) {
+  displayCurrentPlayerTurn() {
     const currentPlayer = game.players.find((player) => player.turn)
 
-      $('.player-card-name').toArray().forEach((player) => {
-        if (player.innerText === currentPlayer.name) {
-          player.classList.add('current-player')
-        } else {
-          player.classList.remove('current-player')
-        }
-      })
+    $('.player-card-name').toArray().forEach((player) => {
+      if (player.innerText === currentPlayer.name) {
+        player.classList.add('current-player')
+      } else {
+        player.classList.remove('current-player')
+      }
+    })
   },
 
   displayPuzzle(puzzle) {
@@ -158,6 +149,7 @@ const domUpdates = {
   },
 
   ////////////////////Round Change////////////////////
+
   displayRoundPopUp(player, score) {
     $(".change-round-popup").removeClass("hide");
     $(".winner-info")
@@ -179,7 +171,6 @@ const domUpdates = {
 
   displayTotalScore(player, score) {
     if (player === $(".display-player1-name").text()) {
-      console.log(score)
       $(".player1-total-score").text(`Total Score: $${score}`);
     } else if (player === $(".display-player2-name").text()) {
       $(".player2-total-score").text(`Total Score: $${score}`);
@@ -236,8 +227,6 @@ const domUpdates = {
     domUpdates.displayRoundPopUp(player, score);
   }
 };
-
-
 
 if (typeof module !== 'undefined') {
   module.exports = domUpdates;
