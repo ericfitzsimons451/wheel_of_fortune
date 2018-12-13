@@ -10,13 +10,14 @@ class Game {
   }
 
   startGame() {
-    // let names = domUpdates.getPlayerNames();
-    // player.createPlayers(names);
     this.wheel.generateValues();
     this.players[0].turn = true;
-    // domUpdates.setPlayerNames(this.players);
-    // console.log('game', this.players)
-    domUpdates.forStartingGame(this.players, this.players[0], this.currentPuzzle.phrase.correct_answer.toLowerCase(), this.currentPuzzle.phrase.category);
+    domUpdates.forStartingGame(
+      this.players,
+      this.players[0],
+      this.currentPuzzle.phrase.correct_answer.toLowerCase(),
+      this.currentPuzzle.phrase.category
+    );
   }
 
   changeRounds() {
@@ -26,29 +27,17 @@ class Game {
       });
       this.currentRound++;
       this.currentPuzzle = new Puzzle();
-      domUpdates.forRoundChange(this.currentRound, this.currentPuzzle.phrase.correct_answer.toLowerCase(), this.currentPuzzle.phrase.category, this.players[0], this.players[0].totalScore);
+      domUpdates.forRoundChange(
+        this.currentRound,
+        this.currentPuzzle.phrase.correct_answer.toLowerCase(),
+        this.currentPuzzle.phrase.category,
+        this.players[0],
+        this.players[0].totalScore
+      );
       let newWheel = new Wheel();
       this.wheel = newWheel;
       this.wheel.generateValues();
-    } 
-  }
-
-  startBonusRound() {
-    this.currentRound++;
-    this.declareWinner();
-    let bonusWheel = new BonusWheel();
-    this.wheel = bonusWheel;
-    this.wheel.generateValues();
-    this.currentPuzzle = new Puzzle();
-    domUpdates.forRoundChange(this.currentRound, this.currentPuzzle.phrase.correct_answer.toLowerCase(), this.currentPuzzle.phrase.category, this.players[0], this.players[0].totalScore);
-
-    // domUpdates.resetRoundScore();
-    // domUpdates.updateRoundNumber(this.currentRound);
-    // domUpdates.clearPuzzle();
-    // domUpdates.displayPuzzle(
-    //   this.puzzle.currentPuzzle.correct_answer.toLowerCase()
-    // );
-    // domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
+    }
   }
 
   changePlayerTurn() {
@@ -77,10 +66,36 @@ class Game {
   }
 
   declareWinner() {
-    let winner = game.players.sort((a, b) => {
-      return b.totalScore - a.totalScore
-    }).shift()
-    this.finalRoundPlayer.push(winner)
+    let winner = game.players
+      .sort((a, b) => {
+        return b.totalScore - a.totalScore;
+      })
+      .shift();
+    this.finalRoundPlayer.push(winner);
+  }
+
+  startBonusRound() {
+    this.currentRound++;
+    this.declareWinner();
+    let bonusWheel = new BonusWheel();
+    this.wheel = bonusWheel;
+    this.wheel.generateValues();
+    this.currentPuzzle = new Puzzle();
+    domUpdates.forRoundChange(
+      this.currentRound,
+      this.currentPuzzle.phrase.correct_answer.toLowerCase(),
+      this.currentPuzzle.phrase.category,
+      this.players[0],
+      this.players[0].totalScore
+    );
+
+    // domUpdates.resetRoundScore();
+    // domUpdates.updateRoundNumber(this.currentRound);
+    // domUpdates.clearPuzzle();
+    // domUpdates.displayPuzzle(
+    //   this.puzzle.currentPuzzle.correct_answer.toLowerCase()
+    // );
+    // domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
   }
 
   bonusRoundLetterSubmission() {
@@ -102,7 +117,6 @@ class Game {
     //      display something that says your final score
     //      Offer an exit game option
   }
-
 }
 if (typeof module !== 'undefined') {
   module.exports = Game;

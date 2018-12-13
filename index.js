@@ -34,8 +34,6 @@ $('.spin-btn').on('click', function(e) {
 $('.guess-letter-submit').on('click', function(e) {
   e.preventDefault();
   const letter = $('.guess-letter-input').val();
-  // if (letter === 'a' || letter === 'e' || letter === 'i'|| letter === 'o' || letter === 'u' ) {
-  //   alert('You have to choose a consonant!')
     $('.guess-letter-input').val('');
   
   const lowerLetter = letter.toLowerCase();

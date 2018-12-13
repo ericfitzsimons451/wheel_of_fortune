@@ -10,7 +10,7 @@ class Player {
 
   spinWheel() {
     this.currentSpinValue = game.wheel.spin();
-    domUpdates.displaySpinValue(this.currentSpinValue)
+    // domUpdates.displaySpinValue(this.currentSpinValue)
 
     if (this.currentSpinValue === "LOSE A TURN") {
       game.changePlayerTurn();

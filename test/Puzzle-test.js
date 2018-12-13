@@ -9,31 +9,12 @@ global.data = require("../Data.js");
 global.Player = require("../Player.js");
 
 describe('Puzzle', function () {
-  var game;
+  var puzzle;
 
   beforeEach(function () {
-    game = new Game();
+    puzzle = new Puzzle();
   });
 
-  it('should instantiate a new puzzle on game start', function() {
-    expect(game.puzzle).to.be.an.instanceOf(Puzzle)
-  });
-
-  it('should instantiate a puzzle with 3 keys', function() {
-    expect(game.puzzle).to.have.all.keys('currentPuzzle', 'puzzleBank', 'roundPuzzle')
-  });
-
-  it('should have 5 puzzles in its puzzle bank', function() {
-    expect(game.puzzle.puzzleBank.length).to.equal(5)
-  });
-
-  it('should set a new puzzle for first round', function() {
-    expect(game.puzzle.currentPuzzle).to.deep.equal(game.puzzle.puzzleBank[0]);
-  });
-
-  it('should set a new puzzle for second round', function() {
-    game.currentRound === 2;
-    expect(game.puzzle.currentPuzzle).to.deep.equal(game.puzzle.puzzleBank[1]);
-  })
+  it('should ')
 
 });
