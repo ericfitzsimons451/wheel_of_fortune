@@ -1,19 +1,5 @@
 let game = new Game();
 
-function generateRandomPuzzle() {
-  const puzzleKeys = Object.keys(data.puzzles)
-  let randomPuzzle = puzzleKeys.reduce((arr, puzzleKey) => {
-    arr.push(...data.puzzles[puzzleKey].puzzle_bank)
-    return arr
-  }, []).sort(function () {
-    return 0.5 - Math.random()
-  }).pop()
-
-  return randomPuzzle
-}
-
-
-
 $('.guess-letter-btn').prop('disabled', true);
 $('.guess-letter-input').prop('disabled', true);
 $('.solve-puzzle-input').prop('disabled', true);
@@ -24,7 +10,15 @@ $('.start-game-btn').on('click', function(e){
   if ($('#player-1-input').val() === '' || $('#player-2-input').val() === '' || $('#player-3-input').val() === '') {
     domUpdates.fireNameAlert();
   } else {
-  game.startGame();
+    let player1 = new Player($('#player-1-input').val());
+    let player2 = new Player($('#player-2-input').val());
+    let player3 = new Player($('#player-3-input').val());
+    let players = [player1, player2, player3]
+    for (var i = 0; i < 3; i++) {
+      game.players.push(players[i])
+    }
+
+    game.startGame();
   }
 });
 

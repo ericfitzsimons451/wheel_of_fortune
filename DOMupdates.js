@@ -1,19 +1,20 @@
 const domUpdates = {
   ////////////////////Game Start////////////////////
-  getPlayerNames() {
-    const player1Name = $("#player-1-input").val();
-    const player2Name = $("#player-2-input").val();
-    const player3Name = $("#player-3-input").val();
+  // getPlayerNames() {
+  //   const player1Name = $("#player-1-input").val();
+  //   const player2Name = $("#player-2-input").val();
+  //   const player3Name = $("#player-3-input").val();
 
-    const playerNames = [];
-    playerNames.push(player1Name, player2Name, player3Name);
-    return playerNames;
-  },
+  //   const playerNames = [];
+  //   playerNames.push(player1Name, player2Name, player3Name);
+  //   return playerNames;
+  // },
 
   setPlayerNames(playerNames) {
-    $(".display-player1-name").text(`${playerNames[0]}`);
-    $(".display-player2-name").text(`${playerNames[1]}`);
-    $(".display-player3-name").text(`${playerNames[2]}`);
+    console.log(playerNames)
+    $(".display-player1-name").text(`${playerNames[0].name}`);
+    $(".display-player2-name").text(`${playerNames[1].name}`);
+    $(".display-player3-name").text(`${playerNames[2].name}`);
   },
 
   fireNameAlert() {
@@ -26,17 +27,17 @@ const domUpdates = {
 
   ////////////////////Gameplay////////////////////
 
-  displayCurrentPlayerTurn(player) {
-    const currentPlayer = game.players.find((player) => player.turn)
+  // displayCurrentPlayerTurn(player) {
+  //   const currentPlayer = game.players.find((player) => player.turn)
 
-      $('.player-card-name').toArray().forEach((player) => {
-        if (player.innerText === currentPlayer.name) {
-          player.classList.add('current-player')
-        } else {
-          player.classList.remove('current-player')
-        }
-      })
-  },
+  //     $('.player-card-name').toArray().forEach((player) => {
+  //       if (player.innerText === currentPlayer.name) {
+  //         player.classList.add('current-player')
+  //       } else {
+  //         player.classList.remove('current-player')
+  //       }
+  //     })
+  // },
 
   displayPuzzle(puzzle) {
     let splitAnswer = Array.from(puzzle);
@@ -223,7 +224,7 @@ const domUpdates = {
 
   forStartingGame(player, puzzle, category) {
     domUpdates.hideStartScreen();
-    domUpdates.displayCurrentPlayerTurn(player);
+    // domUpdates.displayCurrentPlayerTurn(player);
     domUpdates.displayPuzzle(puzzle);
     domUpdates.displayCategory(category);
   },

@@ -10,22 +10,24 @@ class Game {
   }
 
   startGame() {
-    let names = domUpdates.getPlayerNames();
-    this.createPlayers(names);
+    // let names = domUpdates.getPlayerNames();
+    // player.createPlayers(names);
     this.wheel.generateValues();
+    domUpdates.setPlayerNames(this.players);
+    console.log('game', this.players)
     domUpdates.forStartingGame(this.players[0], this.currentPuzzle.phrase.correct_answer.toLowerCase(), this.currentPuzzle.phrase.category);
   }
 
-  createPlayers(names) {
-    this.players = [
-      new Player(names[0]),
-      new Player(names[1]),
-      new Player(names[2])
-    ];
-    this.players[0].turn = true;
+  // createPlayers(names) {
+  //   this.players = [
+  //     new Player(names[0]),
+  //     new Player(names[1]),
+  //     new Player(names[2])
+  //   ];
+  //   this.players[0].turn = true;
 
-    domUpdates.setPlayerNames(names);
-  }
+  //   domUpdates.setPlayerNames(names);
+  // }
 
   changeRounds() {
     if (this.currentRound <= 3) {

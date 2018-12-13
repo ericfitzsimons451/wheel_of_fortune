@@ -8,19 +8,51 @@ global.data = require('../Data.js')
 global.Player = require('../Player.js')
 global.Puzzle = require('../Puzzle.js')
 global.Wheel = require('../Wheel.js')
- 
-chai.spy.on(global.domUpdates, ['setPlayerNames', 'getPlayerNames'], () => { //for testing functions that actually return something
-  return ['John', 'Joe', 'Bill']
-})
 
-chai.spy.on(global.domUpdates, ['hideStartScreen', 'displayCurrentPlayerTurn', 'displayPuzzle', 'displayCategory', 'createPlayers', 'updatePlayerRoundScore'], () => true) //did this function happen (doesnt return anything)
 
-describe('Game', function() {
-  var game;
 
-  beforeEach(function() {
+  describe('Game', function() {
+    var game;
+
+    beforeEach(function() {
+      chai.spy.on(global.domUpdates, [
+        'setPlayerNames', 
+        'getPlayerNames'], () => { 
+      return ['John', 'Joe', 'Bill']
+    })
+    
+
+  chai.spy.on(global.domUpdates, [
+    'generateRandomPuzzle',
+    'hideStartScreen',
+    'displayCurrentPlayerTurn',
+    'displayPuzzle',
+    'displayCategory', 
+    'createPlayers', 
+    'updatePlayerRoundScore', 
+    'fireNameAlert',
+    'fireVowelAlert', 
+    'displaySpinValue',
+    'showGuessedLetter',
+    'updatePuzzleOnDom', 
+    'putVowelOnDom', 
+    'deductVowelCost',
+    'displaySolvedPuzzle',
+    'enableButtons', 
+    'displayRoundPopUp',
+    'hideRoundPopUp',
+    'updateRoundNumber',
+    'displayTotalScore',
+    'resetVowels', 
+    'clearPuzzle', 
+    'resetRoundScore',
+    'forRoundChange',
+    'forStartingGame', 
+    'forCorrectSolution'], () => true) 
+
     game = new Game();
   });
+
 
   it('should call hidescreen ', function(){
     game.startGame();

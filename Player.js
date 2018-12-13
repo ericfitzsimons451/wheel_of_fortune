@@ -5,7 +5,7 @@ class Player {
     this.roundPoints = 0;
     this.totalScore = 0;
     this.currentSpinValue = null;
-    this.getsToGoToFinal = false  // is this necessary?
+    this.getsToGoToFinal = false  
   }
 
   spinWheel() {
@@ -22,7 +22,6 @@ class Player {
       domUpdates.displaySpinValue(this.currentSpinValue)
     }
   }
-  
 
   guessLetter(letter) {
     game.currentPuzzle.checkPlayerGuess(letter);

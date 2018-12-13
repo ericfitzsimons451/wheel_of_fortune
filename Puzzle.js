@@ -1,16 +1,17 @@
 class Puzzle {
   constructor() {
-    this.phrase = generateRandomPuzzle();
+    this.phrase = this.generateRandomPuzzle();
   }
 
   generateRandomPuzzle() {
-    this.category = Object.keys(data.puzzles)
+    const puzzleKeys = Object.keys(data.puzzles)
     let randomPuzzle = puzzleKeys.reduce((arr, puzzleKey) => {
       arr.push(...data.puzzles[puzzleKey].puzzle_bank)
       return arr
     }, []).sort(function () {
       return 0.5 - Math.random()
     }).pop()
+    return randomPuzzle
   }
 
   checkPlayerGuess(letter) {
