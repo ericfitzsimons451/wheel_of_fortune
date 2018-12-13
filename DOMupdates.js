@@ -169,7 +169,11 @@ const domUpdates = {
   },
 
   updateRoundNumber(round) {
-    $(".round-counter").text(`Round ${round}`);
+    if (round <= 4) {
+      $(".round-counter").text(`Round ${round}`);
+    } else {
+      $(".round-counter").text(`Bonus Round!`);
+    }
   },
 
   displayTotalScore(player, score) {

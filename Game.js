@@ -28,7 +28,7 @@ class Game {
   }
 
   changeRounds() {
-    if (this.currentRound <= 4) {
+    if (this.currentRound <= 3) {
       this.players.forEach(player => {
         player.roundPoints = 0;
       });
@@ -38,20 +38,17 @@ class Game {
       let newWheel = new Wheel();
       this.wheel = newWheel;
       this.wheel.generateValues();
-    } else {
-      this.bonusRound = true;
-      this.startBonusRound();
-    }
+    } 
   }
 
   startBonusRound() {
-    this.declareWinner();
     this.currentRound++;
+    this.declareWinner();
     let bonusWheel = new BonusWheel();
     this.wheel = bonusWheel;
     this.wheel.generateValues();
     this.currentPuzzle = new Puzzle();
-
+    domUpdates.forRoundChange(this.currentRound, this.currentPuzzle.phrase.correct_answer.toLowerCase(), this.currentPuzzle.phrase.category, this.players[0], this.players[0].totalScore);
 
     // domUpdates.resetRoundScore();
     // domUpdates.updateRoundNumber(this.currentRound);
