@@ -2,7 +2,6 @@ class Game {
   constructor() {
     this.players = [];
     this.currentRound = 1;
-    this.bonusRoundLetters = ["r", "s", "t", "l", "n", "e"];
     this.currentPuzzle = new Puzzle();
     this.wheel = new Wheel();
     this.finalRoundPlayer = [];

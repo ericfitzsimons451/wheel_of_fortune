@@ -16,15 +16,21 @@ describe('Puzzle', function () {
   });
 
   it('should be able to generate a random puzzle', function() {
-    puzzle.generateRandomPuzzle()
-    expect(puzzle.phrase).to.not.equal(puzzle.generateRandomPuzzle())
-  }),
-
-  it('should check a players guess', function() {
-    let vowels = "aeiou";
-    player = new Player();
-    puzzle.phrase.correct_answer = "In Like Flynn"
-    puzzle.checkPlayerGuess();
+    let puzzle1 = puzzle.generateRandomPuzzle();
+    let puzzle2 = puzzle.generateRandomPuzzle();
+    expect(puzzle1).to.not.equal(puzzle2)
   })
+
+  it('should be a puzzle object once instantiated', function() {
+    game = new Game();
+    expect(game.currentPuzzle).to.be.an('object')
+  })
+
+  // it('should check a players guess', function() {
+  //   let vowels = "aeiou";
+  //   player = new Player();
+  //   puzzle.phrase.correct_answer = "In Like Flynn"
+  //   puzzle.checkPlayerGuess();
+  // })
 
 });
