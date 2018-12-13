@@ -20,31 +20,21 @@ class Puzzle {
 
     if (!(this.guessedLetters.includes(letter))) {
       this.guessedLetters.push(letter);
-      domUpdates.showGuessedLetter(letter);
-      if (!(vowels.includes(letter)) &&     this.phrase.correct_answer.toLowerCase().includes(letter)) {
-        domUpdates.updatePuzzleOnDom(letter);
-        game.updatePlayerScore(letter);
-      } else if (vowels.includes(letter)) {
-        domUpdates.fireVowelAlert(letter);
-      } else {
-        game.changePlayerTurn();
-      }
-    } else {
+      domUpdates.showGuessedLetter(letter.toUpperCase());
+        if (!(vowels.includes(letter)) &&     this.phrase.correct_answer.toLowerCase().includes(letter)) {
+          domUpdates.updatePuzzleOnDom(letter);
+          game.updatePlayerScore(letter);
+        } else if (vowels.includes(letter)) {
+          domUpdates.fireVowelAlert(letter);
+        } else {
+          game.changePlayerTurn();
+        }
+    } 
+    else {
       domUpdates.showGuessedLetterAlert(letter);
       game.changePlayerTurn();
-      
-
-    // domUpdates.showGuessedLetter(letter);
-    // if (!(vowels.includes(letter)) && this.phrase.correct_answer.toLowerCase().includes(letter)) {
-    //   domUpdates.updatePuzzleOnDom(letter);
-    //   game.updatePlayerScore(letter);
-    // } else if (vowels.includes(letter)) {
-    //   domUpdates.fireVowelAlert(letter);
-    // } else {
-    //   game.changePlayerTurn();
-    // }
+    }
   }
-}
 
   checkPlayerSolution(string) {
     if (this.phrase.correct_answer.toLowerCase() === string) {
