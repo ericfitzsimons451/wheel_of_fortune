@@ -47,11 +47,6 @@ class Player {
     } 
   }
 
-  guessBonusPuzzle() {
-    //  triggered by a click handler
-    //  REQUIRES typing into an input
-    //  fires game.checkBonusRoundSolution
-  }
 }
 
 if (typeof module !== 'undefined') {

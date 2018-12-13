@@ -15,6 +15,16 @@ describe('Puzzle', function () {
     puzzle = new Puzzle();
   });
 
-  it('should ')
+  it('should be able to generate a random puzzle', function() {
+    puzzle.generateRandomPuzzle()
+    expect(puzzle.phrase).to.not.equal(puzzle.generateRandomPuzzle())
+  }),
+
+  it('should check a players guess', function() {
+    let vowels = "aeiou";
+    player = new Player();
+    puzzle.phrase.correct_answer = "In Like Flynn"
+    puzzle.checkPlayerGuess();
+  })
 
 });

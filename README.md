@@ -27,8 +27,6 @@
 #### Wireframe:
 <img width="899" alt="screen shot 2018-12-04 at 7 38 13 am" src="https://user-images.githubusercontent.com/39415039/49757037-ab005180-fc78-11e8-9d35-2437c1eacbcf.png">
 
-![screen shot 2018-12-13 at 7 22 53 am](https://user-images.githubusercontent.com/20710327/49944580-01070c00-fea8-11e8-9c10-4415c7a81ed5.png)
-
 #### Screenshots
 ![screen shot 2018-12-13 at 7 22 53 am](https://user-images.githubusercontent.com/20710327/49944580-01070c00-fea8-11e8-9c10-4415c7a81ed5.png)
 
@@ -38,4 +36,4 @@
 ## Contributors
 [Eric Weissman](https://github.com/ericweissman)
 
-[Eric Fitzsimmons](https://github.com/ericfitzsimons451)
+[Eric Fitzsimons](https://github.com/ericfitzsimons451)

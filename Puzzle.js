@@ -36,6 +36,15 @@ class Puzzle {
       game.changePlayerTurn();
     }
   }
+
+  // checkBonusRoundSolution(string) {
+  //   if (this.phrase.correct_answer.toLowerCase() === string) {
+  //     game.updateTotalScore();
+  //     domUpdates.forCorrectSolution(game.finalRoundPlayer[0].name, finalRoundPlayer[0].totalScore);
+  //   } else {
+  //     domUpdates.displayLostBonusMsg();
+  //   }
+  // }
 }
 
 

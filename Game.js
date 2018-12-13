@@ -98,25 +98,6 @@ class Game {
     // domUpdates.displayCategory(this.puzzle.currentPuzzle.category);
   }
 
-  bonusRoundLetterSubmission() {
-    // if letters are there, put them there
-    //. ++++++ maybe this happens only in DOM updates? ++++++
-  }
-
-  checkBonusRoundSolution() {
-    // grab value from player input (maybe happens in DOM updates?)
-    // to lowerCase the puzzle value AND player's input value
-    // validate answer somehow.  guess === answerguess
-    // if  player's guess is TRUE
-    //.     update player.roundScore with bonusWheel value
-    //      increment that value in player.bank
-    //      display something that says 'You won!' and final score
-    //      Offer an exit game option
-    //. if player's guess is false
-    //      fire game.youAreHorribleAtWheel.  ==== DOM manipulation
-    //      display something that says your final score
-    //      Offer an exit game option
-  }
 }
 if (typeof module !== 'undefined') {
   module.exports = Game;
